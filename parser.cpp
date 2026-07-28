@@ -34,7 +34,7 @@ ErrMes error(std::string line, int lineN, bool inQ, bool inBS) {
 
 
 
-std::vector<Command> ParseFile(const std::string& filename) {
+std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr) {
 
     std::vector<Command> commands;
 
@@ -44,24 +44,25 @@ std::vector<Command> ParseFile(const std::string& filename) {
     if (!file.is_open()) { // Check if it opened the file
 
         std::cerr << "Failed to open the file." << std::endl;
+        outErr.Err = "Failed to open the file.";
         return {};
     }
 
-    std::string line;
+    std::string fileLine;
     int lineN = 1;
 
-    while (std::getline(file, line)) { // Runs while theres lines to run and sets line to file
+    while (std::getline(file, fileLine)) { // Runs while theres lines to run and sets line to file
 
         Command cmd; // My command var
         cmd.line = lineN;
         lineN++; 
 
-        if (line.empty() || line[0] == '#') { // Comments
+        if (fileLine.empty() || fileLine[0] == '#') { // Comments
 
             continue;
         }
     
-        std::stringstream lineStream(line); // I think this gets the first word or smthn
+        std::stringstream lineStream(fileLine); // I think this gets the first word or smthn
         std::string command;
         lineStream >> command; // pushes line stream to command
         cmd.name = command; // pushes command to args
@@ -131,11 +132,11 @@ std::vector<Command> ParseFile(const std::string& filename) {
                 token.clear();
             }
 
-            ErrMes err = error(token, cmd.line, inQ, inBS);
+            ErrMes err = error(fileLine, cmd.line, inQ, inBS);
 
             if (!err.Err.empty()) {
-
-                return {};
+                outErr = err;
+                return commands;
             }
 
             if (!cmd.args.empty()) {

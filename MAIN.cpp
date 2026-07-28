@@ -6,7 +6,8 @@
 
 int main() {
 
-    auto commands = ParseFile("Story Items/Test.uvnn");
+    ErrMes err;
+    auto commands = ParseFile("Story Items/Test.uvnn", err);
 
     for (const Command& cmd : commands) {
         
@@ -16,5 +17,9 @@ int main() {
 
             std::cout << "Arguments: " << arg << "\n";
         }
+    }
+
+    if (!err.Err.empty()) {
+        std::cout << "\nParse error at line " << err.line << ": " << err.Err << "\n";
     }
 }

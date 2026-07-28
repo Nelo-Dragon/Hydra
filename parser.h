@@ -18,4 +18,4 @@ struct ErrMes
     int line;
 };
 
-std::vector<Command> ParseFile(const std::string& filename);
+std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr);
