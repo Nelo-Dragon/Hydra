@@ -8,7 +8,7 @@
 
 
 
-ErrMes error(std::string line, int lineN, bool inQ, bool inBS) {
+ErrMes error(std::string line, int lineN, std::string token, bool inQ, bool inBS) {
     ErrMes error;
 
     if (inBS) {
@@ -25,6 +25,15 @@ ErrMes error(std::string line, int lineN, bool inQ, bool inBS) {
         std::cerr << line << "\n";
         std::cerr << "\nMissed an end quote." << "\nLine: " << lineN;
         error.Err = "\nMissed an end quote.";
+        error.token = line;
+        error.line = lineN;
+        return error;
+    }
+    if (line[line.size() - 1] == ',') {
+
+        std::cerr << line << "\n";
+        std::cerr << "\nEnded in nothing" << "\nLine: " << lineN;
+        error.Err = "\nEnded in nothing";
         error.token = line;
         error.line = lineN;
         return error;
@@ -106,7 +115,7 @@ std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr) {
 
                     if (source[i] != '"') { // just hear for the else kinda
 
-                        if (source[i] != ';') { //finds the ends of arguments
+                        if (source[i] != ',') { //finds the ends of arguments
 
                             if (source[i] != ' ') { // skips spaces and final if till push to token
 
@@ -132,7 +141,7 @@ std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr) {
                 token.clear();
             }
 
-            ErrMes err = error(fileLine, cmd.line, inQ, inBS);
+            ErrMes err = error(fileLine, cmd.line, token, inQ, inBS);
 
             if (!err.Err.empty()) {
                 outErr = err;

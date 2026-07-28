@@ -1,10 +1,6 @@
-damage 10; 1;
-heal 300; 3; # Hello this is comment
-bg hello.png"Hello";
-say "Wassup"; 2;
-wait 2.7;
+test h
+test 1, 2
+test 4
+test 3
 
-bsTest "\"hello\" says I";
-
-
-Start 1; 3; 4; start_with_cool();
+say "Hello", this, "is"
