@@ -10,7 +10,7 @@ int main() {
 
     for (const Command& cmd : commands) {
         
-        std::cout << "Command: " << cmd.name << "\n";
+        std::cout << cmd.line << ". " << "Command: " << cmd.name << "\n";
 
         for (const std::string& arg : cmd.args) {
 

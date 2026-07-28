@@ -8,17 +8,28 @@
 
 
 
-bool error(std::string token, int lineN, bool inQ, bool inBS) {
-    std::cout << token << "\n";
+ErrMes error(std::string line, int lineN, bool inQ, bool inBS) {
+    ErrMes error;
+
     if (inBS) {
+
+        std::cerr << line << "\n";
         std::cerr << "\nEnded in \\" << "\nLine: " << lineN;
-        return true;
+        error.Err = "Ended in \\";
+        error.token = line;
+        error.line = lineN;
+        return error;
     }
     if (inQ) {
+
+        std::cerr << line << "\n";
         std::cerr << "\nMissed an end quote." << "\nLine: " << lineN;
-        return true;
+        error.Err = "\nMissed an end quote.";
+        error.token = line;
+        error.line = lineN;
+        return error;
     }
-    return false;
+    return error;
 }
 
 
@@ -37,12 +48,13 @@ std::vector<Command> ParseFile(const std::string& filename) {
     }
 
     std::string line;
-
+    int lineN = 1;
 
     while (std::getline(file, line)) { // Runs while theres lines to run and sets line to file
 
         Command cmd; // My command var
-        cmd.line++; 
+        cmd.line = lineN;
+        lineN++; 
 
         if (line.empty() || line[0] == '#') { // Comments
 
@@ -119,7 +131,9 @@ std::vector<Command> ParseFile(const std::string& filename) {
                 token.clear();
             }
 
-            if (error(token, cmd.line, inQ, inBS)) {
+            ErrMes err = error(token, cmd.line, inQ, inBS);
+
+            if (!err.Err.empty()) {
 
                 return {};
             }
