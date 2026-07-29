@@ -15,7 +15,7 @@ struct HydraError
 {
     std::string token;
     std::string Err;
-    int line;
+    int line = 0;
 };
 
 std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr);

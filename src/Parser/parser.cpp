@@ -142,10 +142,8 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
                 return commands;
             }
 
-            if (!cmd.args.empty()) {
-
-                commands.push_back(cmd);
-            }
+            commands.push_back(cmd);
+            
         }
     }
 

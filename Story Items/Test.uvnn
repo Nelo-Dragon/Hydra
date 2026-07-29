@@ -1,3 +1,4 @@
 say "hello"
-
+set player, "cool Dat"
 say "wat is up my bro"
+say $player
