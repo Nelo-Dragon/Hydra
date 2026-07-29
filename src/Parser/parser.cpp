@@ -9,6 +9,7 @@
 
 
 HydraError error(std::string line, int lineN, std::string token, bool inQ, bool inBS) {
+    
     HydraError error;
 
     if (inBS) {

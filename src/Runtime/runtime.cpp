@@ -3,24 +3,26 @@
 #include <iostream>
 
 
+
 void Runtime::RuntimeError(const Command& cmd, const std::string& message) {
 
-    std::cerr
-        << "Runtime Error\n"
-        << "Line: " << cmd.line << "\n"
-        << "Command: " << cmd.name << "\n"
-        << message << '\n';
+    std::cerr << "Runtime Error\n" << "Line: " << cmd.line << "\n"
+        << "Command: " << cmd.name << "\n" << message << '\n';
 }
 
 
 void Runtime::Run(const std::vector<Command>& commands)
 {
 
-    for (const Command& cmd : commands){
+    for (const Command& cmd : commands) {
 
         if (cmd.name == "say") {
             
             std::cout << cmd.args[0] << "\n";
+        }
+        else if (cmd.name == "set") {
+
+            variables.Set(cmd.args[0], cmd.args[1]);
         }
         else {
             RuntimeError(cmd, "unknown command.");
