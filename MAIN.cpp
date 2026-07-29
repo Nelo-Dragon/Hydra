@@ -6,7 +6,7 @@
 
 int main() {
 
-    ErrMes err;
+    HydraError err;
     auto commands = ParseFile("Story Items/Test.uvnn", err);
 
     if (!err.Err.empty()) {

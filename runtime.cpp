@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-void RuntimeError(const Command& cmd, const std::string& message) {
+void Runtime::RuntimeError(const Command& cmd, const std::string& message) {
 
     std::cerr
         << "Runtime Error\n"

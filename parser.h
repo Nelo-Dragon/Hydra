@@ -11,11 +11,11 @@ struct Command
     int line = 0;
 };
 
-struct ErrMes
+struct HydraError
 {
     std::string token;
     std::string Err;
     int line;
 };
 
-std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr);
+std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr);

@@ -8,13 +8,11 @@
 
 
 
-ErrMes error(std::string line, int lineN, std::string token, bool inQ, bool inBS) {
-    ErrMes error;
+HydraError error(std::string line, int lineN, std::string token, bool inQ, bool inBS) {
+    HydraError error;
 
     if (inBS) {
 
-        std::cerr << line << "\n";
-        std::cerr << "\nEnded in \\" << "\nLine: " << lineN;
         error.Err = "Ended in \\";
         error.token = line;
         error.line = lineN;
@@ -22,8 +20,6 @@ ErrMes error(std::string line, int lineN, std::string token, bool inQ, bool inBS
     }
     if (inQ) {
 
-        std::cerr << line << "\n";
-        std::cerr << "\nMissed an end quote." << "\nLine: " << lineN;
         error.Err = "\nMissed an end quote.";
         error.token = line;
         error.line = lineN;
@@ -31,8 +27,6 @@ ErrMes error(std::string line, int lineN, std::string token, bool inQ, bool inBS
     }
     if (line[line.size() - 1] == ',') {
 
-        std::cerr << line << "\n";
-        std::cerr << "\nEnded in nothing" << "\nLine: " << lineN;
         error.Err = "\nEnded in nothing";
         error.token = line;
         error.line = lineN;
@@ -43,7 +37,7 @@ ErrMes error(std::string line, int lineN, std::string token, bool inQ, bool inBS
 
 
 
-std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr) {
+std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) {
 
     std::vector<Command> commands;
 
@@ -52,7 +46,6 @@ std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr) {
 
     if (!file.is_open()) { // Check if it opened the file
 
-        std::cerr << "Failed to open the file." << std::endl;
         outErr.Err = "Failed to open the file.";
         return {};
     }
@@ -141,7 +134,7 @@ std::vector<Command> ParseFile(const std::string& filename, ErrMes& outErr) {
                 token.clear();
             }
 
-            ErrMes err = error(fileLine, cmd.line, token, inQ, inBS);
+            HydraError err = error(fileLine, cmd.line, token, inQ, inBS);
 
             if (!err.Err.empty()) {
                 outErr = err;
