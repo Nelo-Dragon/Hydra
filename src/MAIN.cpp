@@ -1,5 +1,5 @@
-#include "parser.h"
-#include "runtime.h"
+#include "src/Parser/parser.h"
+#include "src/Runtime/runtime.h"
 
 #include <iostream>
 
