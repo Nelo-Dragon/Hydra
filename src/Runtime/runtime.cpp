@@ -1,4 +1,5 @@
 #include "src/Runtime/runtime.h"
+#include "src/Variables/variables.h"
 
 
 #include <iostream>
@@ -11,6 +12,7 @@ void Runtime::RuntimeError(const Command& cmd, const std::string& message) {
     std::cerr << "Runtime Error\n" << "Line: " << cmd.line << "\n"
         << "Command: " << cmd.name << "\n" << message << '\n';
 }
+
 
 
 void Runtime::Run(const std::vector<Command>& commands)
@@ -28,10 +30,10 @@ void Runtime::Run(const std::vector<Command>& commands)
                 break;
             }
 
-            if (cmd.args[0][0] == '$') {
-                std::string varName = cmd.args[0];
-                varName.erase(0, 1);
-                std::cout << variables.Get(varName) << "\n";
+            VarCheck var = variables.IsVar(cmd.args[0]);
+
+            if (var.var == true) {
+                std::cout << variables.Get(var.name) << "\n";
             }
             else {
                 std::cout << cmd.args[0] << "\n";
@@ -45,6 +47,24 @@ void Runtime::Run(const std::vector<Command>& commands)
             }
 
             variables.Set(cmd.args[0], cmd.args[1]);
+        }
+        else if (cmd.name == "add") {
+
+            std::vector<int> nums;
+
+            if (argA <= 2) {
+                argErr = true;
+                break;
+            }
+
+            for (size_t i = 0; i >= cmd.args.size(); i++) {
+                VarCheck var = variables.IsVar(cmd.args[i]);
+
+                if (var.var == true) {
+                    nums.push_back(std::stoi(variables.Get(var.name)));
+                }
+            }
+
         }
         else if (argErr == true) {
 
