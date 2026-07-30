@@ -11,3 +11,7 @@ file(GLOB_RECURSE HYDRA_SOURCES
 )
 
 add_executable(hydra ${HYDRA_SOURCES})
+
+target_include_directories(hydra PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
