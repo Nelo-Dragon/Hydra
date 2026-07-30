@@ -18,6 +18,11 @@ private:
     void Say(const Command& cmd);
     void Set(const Command& cmd);
     void Add(const Command& cmd);
+    void Sub(const Command& cmd);
+    void Mlt(const Command& cmd);
+    void Div(const Command& cmd);
+
+    std::string FtoS(float input);
 
     VarSys variables;
 

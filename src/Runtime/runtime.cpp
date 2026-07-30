@@ -18,6 +18,8 @@ void Runtime::RuntimeError(const Command& cmd, const std::string& message) {
 void Runtime::Run(const std::vector<Command>& commands)
 {
 
+    std::string argErr = "Argument amount wrong.";
+
     for (const Command& cmd : commands) {
 
         int argA = cmd.args.size();
@@ -26,7 +28,7 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             if (argA != 1) {
 
-                RuntimeError(cmd, "Argument amount wrong.");
+                RuntimeError(cmd, argErr);
                 continue;
             }
 
@@ -36,7 +38,7 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             if (argA != 2) {
 
-            RuntimeError(cmd, "Argument amount wrong.");
+            RuntimeError(cmd, argErr);
             continue;
             }
 
@@ -46,11 +48,39 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             if (argA < 2) {
 
-                RuntimeError(cmd, "Argument amount wrong.");
+                RuntimeError(cmd, argErr);
                 continue;
             }
 
             Add(cmd);
+        }
+        else if (cmd.name == "sub") {
+
+            if (argA < 2) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            Sub(cmd);
+        }
+        else if (cmd.name == "mlt") {
+
+            if (argA < 2) {
+
+                RuntimeError(cmd, argErr);
+            }
+
+            Mlt(cmd);
+        }
+        else if (cmd.name == "div") {
+
+            if (argA < 2) {
+
+                RuntimeError(cmd, argErr);
+            }
+
+            Div(cmd);
         }
         else {
 
