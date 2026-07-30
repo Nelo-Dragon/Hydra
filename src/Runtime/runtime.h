@@ -15,6 +15,10 @@ private:
 
     void RuntimeError(const Command& cmd, const std::string& message);
 
+    void Say(const Command& cmd);
+    void Set(const Command& cmd);
+    void Add(const Command& cmd);
+
     VarSys variables;
 
     std::string cBack;
