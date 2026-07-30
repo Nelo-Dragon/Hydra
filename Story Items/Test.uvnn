@@ -1,21 +1,27 @@
 say "Hello World!"
 say "This is my Test.uvnn"
 say "Heres some add action"
-set health, 100
+
+set health, 100 # This is a comment
 say "Initulized health to 100"
 say $health
+
 set heal, 20
 set damage, -10
 say "Initulized heal to 20 and damage to -10"
+# another comment
 add $health, $heal
 say $health
 say "Healed health" 
+
 add $health, $damage
 say $health
 say "Damaged health"
+
 say "YOU CAN ALSO MULTIPLY WITH ADD!!! (sort of)"
 set mult, 2
 say "Set mult to 2"
 say "We'll multiply by 4"
+
 add $mult, $mult, $mult, $mult
 say $mult
