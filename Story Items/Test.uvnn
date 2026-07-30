@@ -1,5 +1,5 @@
 say "Hello World!"
-say "This is my Test.uvnn."
+say "This is my Test.uvnn"
 say "Heres some add and subtract action."
 
 set health, 100 # This is a comment
@@ -19,16 +19,16 @@ say $health
 say "Damaged health."
 
 say "Here some multiplying and dividing now."
-set mlt, 4
-say "Set mlt to 4."
+set mlt, 4.5
+say "Set mlt to 4.5"
 say "We'll multiply by 16."
 
 mlt $mlt, 16
 say $mlt
 
 say "Now lets divide!"
-say "Set div to 60."
-set div, 60
+say "Set div to 2."
+set div, 2
 say "We'll divide by 3."
 
 div $div, 3
