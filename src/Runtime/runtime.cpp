@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 
 
@@ -21,29 +22,32 @@ void Runtime::Run(const std::vector<Command>& commands)
     for (const Command& cmd : commands) {
 
         int argA = cmd.args.size();
-        bool argErr = false;
 
         if (cmd.name == "say") {
 
             if (argA != 1) {
-                argErr = true;
-                break;
+
+            RuntimeError(cmd, "Argument amount wrong.");
+            continue;
             }
 
             VarCheck var = variables.IsVar(cmd.args[0]);
 
             if (var.var == true) {
+
                 std::cout << variables.Get(var.name) << "\n";
             }
             else {
+
                 std::cout << cmd.args[0] << "\n";
             }
         }
         else if (cmd.name == "set") {
 
             if (argA != 2) {
-                argErr = true;
-                break;
+
+            RuntimeError(cmd, "Argument amount wrong.");
+            continue;
             }
 
             variables.Set(cmd.args[0], cmd.args[1]);
@@ -51,25 +55,55 @@ void Runtime::Run(const std::vector<Command>& commands)
         else if (cmd.name == "add") {
 
             std::vector<int> nums;
+            int addNums = 0;
+            int fAddNums = 0;
 
-            if (argA <= 2) {
-                argErr = true;
-                break;
+            if (argA < 2) {
+
+                RuntimeError(cmd, "Argument amount wrong.");
+                continue;
             }
 
-            for (size_t i = 0; i >= cmd.args.size(); i++) {
+
+            for (size_t i = 1; i < cmd.args.size(); i++) {
+
                 VarCheck var = variables.IsVar(cmd.args[i]);
 
-                if (var.var == true) {
-                    nums.push_back(std::stoi(variables.Get(var.name)));
+                std::string varAmt = variables.Get(var.name);
+
+                try {
+
+                    if (var.var == true) {
+                        nums.push_back(std::stoi(varAmt));
+                    }
+                    else {
+                        nums.push_back(std::stoi(cmd.args[i]));
+                    }
                 }
+                catch (const std::invalid_argument&) {
+
+                    RuntimeError(cmd, "Expexts a number.");
+                    break;
+                }
+                catch (const std::out_of_range&) {
+
+                    RuntimeError(cmd, "Number is too large.");
+                     break;
+                }
+                
             }
 
-        }
-        else if (argErr == true) {
+            for (size_t i = 0; i < nums.size(); i++) {
 
-            RuntimeError(cmd, "Argument amount wrong.");
-            continue;
+                addNums = addNums + nums[i];
+            }
+
+            VarCheck var = variables.IsVar(cmd.args[0]);
+
+            std::string varAmt = variables.Get(var.name);
+
+            variables.Set(var.name, std::to_string(addNums + std::stoi(varAmt)));
+
         }
         else {
 
