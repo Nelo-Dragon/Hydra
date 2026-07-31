@@ -147,6 +147,14 @@ void Runtime::Run(const std::vector<Command>& commands)
                 continue;
             }
 
+            if (isLoop.lineN.empty()) {
+
+                RuntimeError(cmd, "Unexpected endloop.");
+                continue;
+            }
+
+            isLoop = EndLoop(cmd, isLoop);
+
             if (!isLoop.lineN.empty()) {
 
                 i = isLoop.lineN.back();

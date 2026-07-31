@@ -420,10 +420,17 @@ Runtime::IsLoop Runtime::EndLoop(const Command& cmd, const IsLoop& isLoop) {
         RuntimeError(cmd, "Unexpected endloop.");
         return curLoop;
     }
+
+    std::cout << "ENDLOOP: "
+        << "line=" << curLoop.lineN.back()
+        << " iterations=" << curLoop.iteration.back()
+        << "\n";
     
     curLoop.iteration.back() -= 1;
 
     if (curLoop.iteration.back() <= 0) {
+
+        std::cout << "POPPING LOOP\n";
 
         curLoop.iteration.pop_back();
         curLoop.lineN.pop_back();

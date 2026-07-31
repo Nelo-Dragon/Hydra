@@ -1,13 +1,24 @@
-set i, 1
+say "START"
 
-set iters, 3
+set outer, 0
+set inner, 0
 
-loop $iters
+loop 3
 
-    say "Loop!"
-    say $i
-    add $i, 1
+    add $outer, 1
+    say "Outer:"
+    say $outer
+
+    set inner, 0
+
+    loop 2
+
+        add $inner, 1
+        say "Inner:"
+        say $inner
+
+    endloop
 
 endloop
 
-say "Done!"
+say "DONE"
