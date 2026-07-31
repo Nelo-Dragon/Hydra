@@ -13,6 +13,37 @@ void Runtime::RuntimeError(const Command& cmd, const std::string& message) {
         << "Command: " << cmd.name << "\n" << message << '\n';
 }
 
+bool Runtime::Compare(const std::string& left, const std::string& op, const std::string& right) {
+    
+    if (op == "=") {
+
+        return left == right;
+    }
+    else if (op == "!=") {
+
+        return left != right;
+    }
+    else if (op == "<") {
+
+        return left < right;
+    }
+    else if (op == ">") {
+
+        return left > right;
+    }
+    else if (op == "<=") {
+
+        return left <= right;
+    }
+    else if (op == ">=") {
+
+        return left >= right;
+    }
+    else {
+
+        return false;
+    }
+}
 
 
 void Runtime::Run(const std::vector<Command>& commands)
@@ -20,11 +51,30 @@ void Runtime::Run(const std::vector<Command>& commands)
 
     std::string argErr = "Argument amount wrong.";
 
+    IsIf isIf;
+
     for (const Command& cmd : commands) {
 
+        
         int argA = cmd.args.size();
 
-        if (cmd.name == "say") {
+        if (cmd.name == "if") {
+
+            if (argA < 2) {
+
+                RuntimeError(cmd, argErr);
+            }
+
+            isIf = If(cmd, isIf);
+        }
+        else if (!isIf.inIf == 0) {
+
+            if (isIf.ifBad[isIf.inIf] == true) {
+
+            continue;
+            }
+        }
+        else if (cmd.name == "say") {
 
             if (argA != 1) {
 
@@ -43,6 +93,16 @@ void Runtime::Run(const std::vector<Command>& commands)
             }
 
             Set(cmd);
+        }
+        else if (cmd.name == "kill") {
+
+            if (argA == 0) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            Kll(cmd);
         }
         else if (cmd.name == "add") {
 

@@ -33,3 +33,11 @@ say "We'll divide by 3."
 
 div $div, 3
 say $div
+
+say "Now for killing variables!"
+
+kill div
+
+say "I got rid of div!"
+
+say $div

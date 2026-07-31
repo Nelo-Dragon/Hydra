@@ -10,6 +10,11 @@ void VarSys::Set(const std::string& name, const std::string& value) {
     VarSys::vars[name] = value;
 }
 
+void VarSys::Kill(const std::string& name) {
+
+    vars.erase(name);
+}
+
 
 VarCheck VarSys::IsVar(const std::string& arg) {
 

@@ -14,6 +14,7 @@ class VarSys
 public:
 
     void Set(const std::string& name, const std::string& value);
+    void Kill(const std::string& name);
     std::string Get(const std::string& name);
 
     VarCheck IsVar(const std::string& arg);

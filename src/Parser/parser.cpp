@@ -8,13 +8,13 @@
 
 
 
-HydraError error(std::string line, int lineN, std::string token, bool inQ, bool inBS) {
+HydraError error(std::string line, int lineN, std::string token, bool inQ, bool inBS, bool inCp) {
     
     HydraError error;
 
     if (inBS) {
 
-        error.Err = "Ended in \\";
+        error.Err = "Ended in '\\'.";
         error.token = line;
         error.line = lineN;
         return error;
@@ -28,7 +28,14 @@ HydraError error(std::string line, int lineN, std::string token, bool inQ, bool 
     }
     if (line[line.size() - 1] == ',') {
 
-        error.Err = "\nEnded in nothing";
+        error.Err = "\nEnded in nothing.";
+        error.token = line;
+        error.line = lineN;
+        return error;
+    }
+    if (inCp == true) {
+
+        error.Err = "\nArithmatic not finished.";
         error.token = line;
         error.line = lineN;
         return error;
@@ -42,6 +49,7 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
 
     std::vector<Command> commands;
 
+    
 
     std::ifstream file(filename);
 
@@ -71,11 +79,15 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
         cmd.name = command; // pushes command to args
         std::string source;
         std::string token;
+
         
         if (std::getline(lineStream, source)) { 
 
             bool inQ = false; // is in quotes
             bool inBS = false; // is in back slash/exit char
+            bool inCp = false;
+
+            HydraError err;
 
             for (size_t i = 0; i < source.size(); i++) { // for however long the line is, run
 
@@ -100,6 +112,7 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
                     else { // finds ending quote and pushes token to args
 
                         cmd.args.push_back(token);
+                        inCp = false;
                         token.clear();
                         inBS = false;
                         inQ = false;
@@ -108,6 +121,37 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
                 else { // unquoted stuff
 
                     if (source[i] != '"') { // just hear for the else kinda
+
+                        if (source[i] == '=' ||
+                            source[i] == '!' ||
+                            source[i] == '<' ||
+                            source[i] == '>') {
+
+                            inCp = true;
+
+                            if (!token.empty()) {
+
+                                cmd.args.push_back(token);
+                                inCp = false;
+                                token.clear();
+                            }
+
+                            token.push_back(source[i]);
+
+                            if (i + 1 < source.size()) {
+
+                                if (source[i + 1] == '=') {
+
+                                    token.push_back(source[i + 1]);
+                                    i++;
+                                }
+                            }
+
+                            cmd.args.push_back(token);
+                            token.clear();
+
+                            continue;
+                        }
 
                         if (source[i] != ',') { //finds the ends of arguments
 
@@ -119,6 +163,7 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
                         else if (!token.empty()) { // found end char and pushes token to args
 
                             cmd.args.push_back(token);
+                            inCp = false;
                             token.clear();
                         }
                     }
@@ -132,10 +177,11 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
             if (!token.empty()) {
 
                 cmd.args.push_back(token);
+                inCp = false;
                 token.clear();
             }
 
-            HydraError err = error(fileLine, cmd.line, token, inQ, inBS);
+            err = error(fileLine, cmd.line, token, inQ, inBS, inCp);
 
             if (!err.Err.empty()) {
                 outErr = err;
