@@ -14,7 +14,6 @@ std::string Runtime::FtoS(float input) {
     return stream.str();
 }
 
-
 void Runtime::Say(const Command& cmd) {
 
     VarCheck var = variables.IsVar(cmd.args[0]);
@@ -284,9 +283,30 @@ Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf) {
     return curIf;
 }
 
-Runtime::IsIf Runtime::EndIf(const IsIf& inIf) {
+Runtime::IsIf Runtime::Else(const Command& cmd, const IsIf& inIf) {
 
     IsIf curIf = inIf;
+
+    if (curIf.ifBad.empty()) {
+
+        RuntimeError(cmd, "Unexpected else.");
+        return curIf;
+    }
+
+    curIf.ifBad.back() = !curIf.ifBad.back();
+
+    return curIf;
+}
+
+Runtime::IsIf Runtime::EndIf(const Command& cmd, const IsIf& inIf) {
+
+    IsIf curIf = inIf;
+
+    if (curIf.ifBad.empty()) {
+
+        RuntimeError(cmd, "Unexpected endIf.");
+        return curIf;
+    }
 
     curIf.ifBad.pop_back();
 

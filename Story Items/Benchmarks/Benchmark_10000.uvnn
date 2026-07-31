@@ -1,0 +1,3669 @@
+# ==========================================================
+# Hydra STRESS TEST Script (auto-generated)
+# Purpose: exercise parser + runtime at scale
+# Sections:
+#   1. Mass variable creation
+#   2. Unrolled arithmetic stress loop
+#   3. Deep nested if chains
+#   4. Wide sibling if blocks
+#   5. String / float mixed variable churn
+#   6. Kill stress (create + destroy)
+#   7. Combined chaos section (math inside nested ifs)
+#   8. Ask test (interactive, kept short)
+# ==========================================================
+say "=== Hydra Stress Test ==="
+
+# ----------------------------------------------------------
+# Section 1: Mass Variable Creation (var000..var299)
+# ----------------------------------------------------------
+say ""
+say "[Section 1: Mass Variable Creation]"
+set var000, 0
+set var001, 1.5
+set var002, "string_value_2"
+set var003, 3
+set var004, 6.0
+set var005, "string_value_5"
+set var006, 6
+set var007, 10.5
+set var008, "string_value_8"
+set var009, 9
+set var010, 15.0
+set var011, "string_value_11"
+set var012, 12
+set var013, 19.5
+set var014, "string_value_14"
+set var015, 15
+set var016, 24.0
+set var017, "string_value_17"
+set var018, 18
+set var019, 28.5
+set var020, "string_value_20"
+set var021, 21
+set var022, 33.0
+set var023, "string_value_23"
+set var024, 24
+set var025, 37.5
+set var026, "string_value_26"
+set var027, 27
+set var028, 42.0
+set var029, "string_value_29"
+set var030, 30
+set var031, 46.5
+set var032, "string_value_32"
+set var033, 33
+set var034, 51.0
+set var035, "string_value_35"
+set var036, 36
+set var037, 55.5
+set var038, "string_value_38"
+set var039, 39
+set var040, 60.0
+set var041, "string_value_41"
+set var042, 42
+set var043, 64.5
+set var044, "string_value_44"
+set var045, 45
+set var046, 69.0
+set var047, "string_value_47"
+set var048, 48
+set var049, 73.5
+set var050, "string_value_50"
+set var051, 51
+set var052, 78.0
+set var053, "string_value_53"
+set var054, 54
+set var055, 82.5
+set var056, "string_value_56"
+set var057, 57
+set var058, 87.0
+set var059, "string_value_59"
+set var060, 60
+set var061, 91.5
+set var062, "string_value_62"
+set var063, 63
+set var064, 96.0
+set var065, "string_value_65"
+set var066, 66
+set var067, 100.5
+set var068, "string_value_68"
+set var069, 69
+set var070, 105.0
+set var071, "string_value_71"
+set var072, 72
+set var073, 109.5
+set var074, "string_value_74"
+set var075, 75
+set var076, 114.0
+set var077, "string_value_77"
+set var078, 78
+set var079, 118.5
+set var080, "string_value_80"
+set var081, 81
+set var082, 123.0
+set var083, "string_value_83"
+set var084, 84
+set var085, 127.5
+set var086, "string_value_86"
+set var087, 87
+set var088, 132.0
+set var089, "string_value_89"
+set var090, 90
+set var091, 136.5
+set var092, "string_value_92"
+set var093, 93
+set var094, 141.0
+set var095, "string_value_95"
+set var096, 96
+set var097, 145.5
+set var098, "string_value_98"
+set var099, 99
+set var100, 150.0
+set var101, "string_value_101"
+set var102, 102
+set var103, 154.5
+set var104, "string_value_104"
+set var105, 105
+set var106, 159.0
+set var107, "string_value_107"
+set var108, 108
+set var109, 163.5
+set var110, "string_value_110"
+set var111, 111
+set var112, 168.0
+set var113, "string_value_113"
+set var114, 114
+set var115, 172.5
+set var116, "string_value_116"
+set var117, 117
+set var118, 177.0
+set var119, "string_value_119"
+set var120, 120
+set var121, 181.5
+set var122, "string_value_122"
+set var123, 123
+set var124, 186.0
+set var125, "string_value_125"
+set var126, 126
+set var127, 190.5
+set var128, "string_value_128"
+set var129, 129
+set var130, 195.0
+set var131, "string_value_131"
+set var132, 132
+set var133, 199.5
+set var134, "string_value_134"
+set var135, 135
+set var136, 204.0
+set var137, "string_value_137"
+set var138, 138
+set var139, 208.5
+set var140, "string_value_140"
+set var141, 141
+set var142, 213.0
+set var143, "string_value_143"
+set var144, 144
+set var145, 217.5
+set var146, "string_value_146"
+set var147, 147
+set var148, 222.0
+set var149, "string_value_149"
+set var150, 150
+set var151, 226.5
+set var152, "string_value_152"
+set var153, 153
+set var154, 231.0
+set var155, "string_value_155"
+set var156, 156
+set var157, 235.5
+set var158, "string_value_158"
+set var159, 159
+set var160, 240.0
+set var161, "string_value_161"
+set var162, 162
+set var163, 244.5
+set var164, "string_value_164"
+set var165, 165
+set var166, 249.0
+set var167, "string_value_167"
+set var168, 168
+set var169, 253.5
+set var170, "string_value_170"
+set var171, 171
+set var172, 258.0
+set var173, "string_value_173"
+set var174, 174
+set var175, 262.5
+set var176, "string_value_176"
+set var177, 177
+set var178, 267.0
+set var179, "string_value_179"
+set var180, 180
+set var181, 271.5
+set var182, "string_value_182"
+set var183, 183
+set var184, 276.0
+set var185, "string_value_185"
+set var186, 186
+set var187, 280.5
+set var188, "string_value_188"
+set var189, 189
+set var190, 285.0
+set var191, "string_value_191"
+set var192, 192
+set var193, 289.5
+set var194, "string_value_194"
+set var195, 195
+set var196, 294.0
+set var197, "string_value_197"
+set var198, 198
+set var199, 298.5
+set var200, "string_value_200"
+set var201, 201
+set var202, 303.0
+set var203, "string_value_203"
+set var204, 204
+set var205, 307.5
+set var206, "string_value_206"
+set var207, 207
+set var208, 312.0
+set var209, "string_value_209"
+set var210, 210
+set var211, 316.5
+set var212, "string_value_212"
+set var213, 213
+set var214, 321.0
+set var215, "string_value_215"
+set var216, 216
+set var217, 325.5
+set var218, "string_value_218"
+set var219, 219
+set var220, 330.0
+set var221, "string_value_221"
+set var222, 222
+set var223, 334.5
+set var224, "string_value_224"
+set var225, 225
+set var226, 339.0
+set var227, "string_value_227"
+set var228, 228
+set var229, 343.5
+set var230, "string_value_230"
+set var231, 231
+set var232, 348.0
+set var233, "string_value_233"
+set var234, 234
+set var235, 352.5
+set var236, "string_value_236"
+set var237, 237
+set var238, 357.0
+set var239, "string_value_239"
+set var240, 240
+set var241, 361.5
+set var242, "string_value_242"
+set var243, 243
+set var244, 366.0
+set var245, "string_value_245"
+set var246, 246
+set var247, 370.5
+set var248, "string_value_248"
+set var249, 249
+set var250, 375.0
+set var251, "string_value_251"
+set var252, 252
+set var253, 379.5
+set var254, "string_value_254"
+set var255, 255
+set var256, 384.0
+set var257, "string_value_257"
+set var258, 258
+set var259, 388.5
+set var260, "string_value_260"
+set var261, 261
+set var262, 393.0
+set var263, "string_value_263"
+set var264, 264
+set var265, 397.5
+set var266, "string_value_266"
+set var267, 267
+set var268, 402.0
+set var269, "string_value_269"
+set var270, 270
+set var271, 406.5
+set var272, "string_value_272"
+set var273, 273
+set var274, 411.0
+set var275, "string_value_275"
+set var276, 276
+set var277, 415.5
+set var278, "string_value_278"
+set var279, 279
+set var280, 420.0
+set var281, "string_value_281"
+set var282, 282
+set var283, 424.5
+set var284, "string_value_284"
+set var285, 285
+set var286, 429.0
+set var287, "string_value_287"
+set var288, 288
+set var289, 433.5
+set var290, "string_value_290"
+set var291, 291
+set var292, 438.0
+set var293, "string_value_293"
+set var294, 294
+set var295, 442.5
+set var296, "string_value_296"
+set var297, 297
+set var298, 447.0
+set var299, "string_value_299"
+say $var000
+say $var025
+say $var050
+say $var075
+say $var100
+say $var125
+say $var150
+say $var175
+say $var200
+say $var225
+say $var250
+say $var275
+say "Section 1 complete."
+
+# ----------------------------------------------------------
+# Section 2: Unrolled Arithmetic Stress Loop
+# ----------------------------------------------------------
+say ""
+say "[Section 2: Arithmetic Stress]"
+set counter, 0
+set stepA, 3
+set stepB, 2
+set stepC, 5
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+say "Checkpoint counter:"
+say $counter
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+say "Checkpoint counter:"
+say $counter
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+say "Checkpoint counter:"
+say $counter
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+say "Checkpoint counter:"
+say $counter
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+say "Checkpoint counter:"
+say $counter
+say "Final counter value:"
+say $counter
+say "Section 2 complete."
+
+# ----------------------------------------------------------
+# Section 3: Deep Nested If Chains
+# ----------------------------------------------------------
+say ""
+say "[Section 3: Deep Nesting]"
+set depthFlag, 1
+if $depthFlag = 1
+    say "Depth level 0 reached."
+    if $depthFlag = 1
+        say "Depth level 1 reached."
+        if $depthFlag = 1
+            say "Depth level 2 reached."
+            if $depthFlag = 1
+                say "Depth level 3 reached."
+                if $depthFlag = 1
+                    say "Depth level 4 reached."
+                    if $depthFlag = 1
+                        say "Depth level 5 reached."
+                        if $depthFlag = 1
+                            say "Depth level 6 reached."
+                            if $depthFlag = 1
+                                say "Depth level 7 reached."
+                                if $depthFlag = 1
+                                    say "Depth level 8 reached."
+                                    if $depthFlag = 1
+                                        say "Depth level 9 reached."
+                                        if $depthFlag = 1
+                                            say "Depth level 10 reached."
+                                            if $depthFlag = 1
+                                                say "Depth level 11 reached."
+                                                if $depthFlag = 1
+                                                    say "Depth level 12 reached."
+                                                    if $depthFlag = 1
+                                                        say "Depth level 13 reached."
+                                                        if $depthFlag = 1
+                                                            say "Depth level 14 reached."
+                                                            if $depthFlag = 1
+                                                                say "Depth level 15 reached."
+                                                                if $depthFlag = 1
+                                                                    say "Depth level 16 reached."
+                                                                    if $depthFlag = 1
+                                                                        say "Depth level 17 reached."
+                                                                        if $depthFlag = 1
+                                                                            say "Depth level 18 reached."
+                                                                            if $depthFlag = 1
+                                                                                say "Depth level 19 reached."
+                                                                                if $depthFlag = 1
+                                                                                    say "Depth level 20 reached."
+                                                                                    if $depthFlag = 1
+                                                                                        say "Depth level 21 reached."
+                                                                                        if $depthFlag = 1
+                                                                                            say "Depth level 22 reached."
+                                                                                            if $depthFlag = 1
+                                                                                                say "Depth level 23 reached."
+                                                                                                if $depthFlag = 1
+                                                                                                    say "Depth level 24 reached."
+                                                                                                    if $depthFlag = 1
+                                                                                                        say "Depth level 25 reached."
+                                                                                                        if $depthFlag = 1
+                                                                                                            say "Depth level 26 reached."
+                                                                                                            if $depthFlag = 1
+                                                                                                                say "Depth level 27 reached."
+                                                                                                                if $depthFlag = 1
+                                                                                                                    say "Depth level 28 reached."
+                                                                                                                    if $depthFlag = 1
+                                                                                                                        say "Depth level 29 reached."
+                                                                                                                        if $depthFlag = 1
+                                                                                                                            say "Depth level 30 reached."
+                                                                                                                            if $depthFlag = 1
+                                                                                                                                say "Depth level 31 reached."
+                                                                                                                                if $depthFlag = 1
+                                                                                                                                    say "Depth level 32 reached."
+                                                                                                                                    if $depthFlag = 1
+                                                                                                                                        say "Depth level 33 reached."
+                                                                                                                                        if $depthFlag = 1
+                                                                                                                                            say "Depth level 34 reached."
+                                                                                                                                            if $depthFlag = 1
+                                                                                                                                                say "Depth level 35 reached."
+                                                                                                                                                if $depthFlag = 1
+                                                                                                                                                    say "Depth level 36 reached."
+                                                                                                                                                    if $depthFlag = 1
+                                                                                                                                                        say "Depth level 37 reached."
+                                                                                                                                                        if $depthFlag = 1
+                                                                                                                                                            say "Depth level 38 reached."
+                                                                                                                                                            if $depthFlag = 1
+                                                                                                                                                                say "Depth level 39 reached."
+                                                                                                                                                                if $depthFlag = 1
+                                                                                                                                                                    say "Depth level 40 reached."
+                                                                                                                                                                    if $depthFlag = 1
+                                                                                                                                                                        say "Depth level 41 reached."
+                                                                                                                                                                        if $depthFlag = 1
+                                                                                                                                                                            say "Depth level 42 reached."
+                                                                                                                                                                            if $depthFlag = 1
+                                                                                                                                                                                say "Depth level 43 reached."
+                                                                                                                                                                                if $depthFlag = 1
+                                                                                                                                                                                    say "Depth level 44 reached."
+                                                                                                                                                                                    if $depthFlag = 1
+                                                                                                                                                                                        say "Depth level 45 reached."
+                                                                                                                                                                                        if $depthFlag = 1
+                                                                                                                                                                                            say "Depth level 46 reached."
+                                                                                                                                                                                            if $depthFlag = 1
+                                                                                                                                                                                                say "Depth level 47 reached."
+                                                                                                                                                                                                if $depthFlag = 1
+                                                                                                                                                                                                    say "Depth level 48 reached."
+                                                                                                                                                                                                    if $depthFlag = 1
+                                                                                                                                                                                                        say "Depth level 49 reached."
+                                                                                                                                                                                                        if $depthFlag = 1
+                                                                                                                                                                                                            say "Depth level 50 reached."
+                                                                                                                                                                                                            if $depthFlag = 1
+                                                                                                                                                                                                                say "Depth level 51 reached."
+                                                                                                                                                                                                                if $depthFlag = 1
+                                                                                                                                                                                                                    say "Depth level 52 reached."
+                                                                                                                                                                                                                    if $depthFlag = 1
+                                                                                                                                                                                                                        say "Depth level 53 reached."
+                                                                                                                                                                                                                        if $depthFlag = 1
+                                                                                                                                                                                                                            say "Depth level 54 reached."
+                                                                                                                                                                                                                            if $depthFlag = 1
+                                                                                                                                                                                                                                say "Depth level 55 reached."
+                                                                                                                                                                                                                                if $depthFlag = 1
+                                                                                                                                                                                                                                    say "Depth level 56 reached."
+                                                                                                                                                                                                                                    if $depthFlag = 1
+                                                                                                                                                                                                                                        say "Depth level 57 reached."
+                                                                                                                                                                                                                                        if $depthFlag = 1
+                                                                                                                                                                                                                                            say "Depth level 58 reached."
+                                                                                                                                                                                                                                            if $depthFlag = 1
+                                                                                                                                                                                                                                                say "Depth level 59 reached."
+                                                                                                                                                                                                                                            endIf
+                                                                                                                                                                                                                                        endIf
+                                                                                                                                                                                                                                    endIf
+                                                                                                                                                                                                                                endIf
+                                                                                                                                                                                                                            endIf
+                                                                                                                                                                                                                        endIf
+                                                                                                                                                                                                                    endIf
+                                                                                                                                                                                                                endIf
+                                                                                                                                                                                                            endIf
+                                                                                                                                                                                                        endIf
+                                                                                                                                                                                                    endIf
+                                                                                                                                                                                                endIf
+                                                                                                                                                                                            endIf
+                                                                                                                                                                                        endIf
+                                                                                                                                                                                    endIf
+                                                                                                                                                                                endIf
+                                                                                                                                                                            endIf
+                                                                                                                                                                        endIf
+                                                                                                                                                                    endIf
+                                                                                                                                                                endIf
+                                                                                                                                                            endIf
+                                                                                                                                                        endIf
+                                                                                                                                                    endIf
+                                                                                                                                                endIf
+                                                                                                                                            endIf
+                                                                                                                                        endIf
+                                                                                                                                    endIf
+                                                                                                                                endIf
+                                                                                                                            endIf
+                                                                                                                        endIf
+                                                                                                                    endIf
+                                                                                                                endIf
+                                                                                                            endIf
+                                                                                                        endIf
+                                                                                                    endIf
+                                                                                                endIf
+                                                                                            endIf
+                                                                                        endIf
+                                                                                    endIf
+                                                                                endIf
+                                                                            endIf
+                                                                        endIf
+                                                                    endIf
+                                                                endIf
+                                                            endIf
+                                                        endIf
+                                                    endIf
+                                                endIf
+                                            endIf
+                                        endIf
+                                    endIf
+                                endIf
+                            endIf
+                        endIf
+                    endIf
+                endIf
+            endIf
+        endIf
+    endIf
+endIf
+say "Section 3 complete."
+
+# ----------------------------------------------------------
+# Section 4: Wide Sibling If Blocks
+# ----------------------------------------------------------
+say ""
+say "[Section 4: Wide Ifs]"
+set flagA, 1
+set flagB, 0
+if $flagA = 1
+    say "Wide branch 0 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 1 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 2 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 3 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 4 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 5 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 6 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 7 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 8 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 9 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 10 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 11 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 12 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 13 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 14 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 15 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 16 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 17 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 18 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 19 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 20 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 21 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 22 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 23 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 24 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 25 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 26 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 27 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 28 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 29 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 30 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 31 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 32 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 33 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 34 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 35 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 36 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 37 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 38 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 39 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 40 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 41 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 42 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 43 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 44 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 45 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 46 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 47 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 48 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 49 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 50 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 51 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 52 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 53 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 54 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 55 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 56 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 57 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 58 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 59 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 60 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 61 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 62 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 63 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 64 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 65 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 66 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 67 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 68 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 69 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 70 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 71 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 72 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 73 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 74 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 75 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 76 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 77 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 78 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 79 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 80 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 81 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 82 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 83 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 84 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 85 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 86 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 87 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 88 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 89 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 90 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 91 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 92 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 93 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 94 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 95 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 96 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 97 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 98 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 99 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 100 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 101 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 102 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 103 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 104 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 105 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 106 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 107 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 108 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 109 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 110 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 111 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 112 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 113 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 114 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 115 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 116 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 117 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 118 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 119 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 120 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 121 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 122 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 123 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 124 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 125 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 126 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 127 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 128 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 129 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 130 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 131 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 132 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 133 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 134 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 135 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 136 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 137 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 138 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 139 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 140 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 141 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 142 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 143 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 144 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 145 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 146 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 147 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 148 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 149 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 150 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 151 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 152 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 153 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 154 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 155 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 156 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 157 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 158 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 159 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 160 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 161 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 162 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 163 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 164 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 165 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 166 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 167 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 168 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 169 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 170 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 171 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 172 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 173 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 174 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 175 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 176 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 177 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 178 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 179 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 180 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 181 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 182 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 183 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 184 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 185 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 186 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 187 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 188 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 189 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 190 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 191 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 192 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 193 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 194 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 195 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 196 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 197 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 198 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 199 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 200 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 201 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 202 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 203 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 204 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 205 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 206 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 207 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 208 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 209 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 210 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 211 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 212 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 213 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 214 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 215 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 216 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 217 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 218 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 219 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 220 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 221 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 222 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 223 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 224 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 225 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 226 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 227 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 228 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 229 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 230 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 231 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 232 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 233 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 234 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 235 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 236 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 237 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 238 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 239 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 240 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 241 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 242 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 243 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 244 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 245 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 246 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 247 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 248 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 249 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 250 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 251 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 252 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 253 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 254 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 255 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 256 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 257 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 258 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 259 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 260 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 261 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 262 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 263 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 264 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 265 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 266 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 267 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 268 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 269 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 270 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 271 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 272 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 273 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 274 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 275 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 276 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 277 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 278 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 279 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 280 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 281 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 282 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 283 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 284 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 285 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 286 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 287 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 288 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 289 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 290 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 291 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 292 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 293 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 294 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 295 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 296 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 297 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 298 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 299 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 300 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 301 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 302 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 303 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 304 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 305 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 306 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 307 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 308 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 309 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 310 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 311 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 312 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 313 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 314 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 315 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 316 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 317 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 318 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 319 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 320 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 321 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 322 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 323 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 324 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 325 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 326 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 327 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 328 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 329 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 330 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 331 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 332 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 333 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 334 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 335 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 336 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 337 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 338 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 339 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 340 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 341 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 342 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 343 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 344 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 345 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 346 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 347 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 348 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 349 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 350 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 351 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 352 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 353 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 354 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 355 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 356 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 357 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 358 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 359 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 360 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 361 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 362 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 363 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 364 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 365 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 366 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 367 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 368 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 369 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 370 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 371 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 372 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 373 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 374 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 375 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 376 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 377 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 378 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 379 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 380 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 381 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 382 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 383 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 384 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 385 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 386 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 387 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 388 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 389 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 390 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 391 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 392 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 393 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 394 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 395 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 396 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 397 (B) should not appear."
+endIf
+if $flagA = 1
+    say "Wide branch 398 (A) fired."
+endIf
+if $flagB = 1
+    say "Wide branch 399 (B) should not appear."
+endIf
+say "Section 4 complete."
+
+# ----------------------------------------------------------
+# Section 5: String / Float Mixed Variable Churn
+# ----------------------------------------------------------
+say ""
+say "[Section 5: Mixed Churn]"
+set churn0, 899.5645
+mult $churn0, 1.1
+set churn1, 149.1025
+mult $churn1, 1.1
+set churn2, 565.3844
+mult $churn2, 1.1
+set churn3, 686.8445
+mult $churn3, 1.1
+set churn4, 98.6001
+mult $churn4, 1.1
+set churn5, 590.5824
+mult $churn5, 1.1
+set churn6, 686.5345
+mult $churn6, 1.1
+set churn7, 308.8452
+mult $churn7, 1.1
+set churn8, 480.8981
+mult $churn8, 1.1
+set churn9, 85.1671
+mult $churn9, 1.1
+set churn10, 84.8067
+mult $churn10, 1.1
+set churn11, 564.992
+mult $churn11, 1.1
+set churn12, 926.9623
+mult $churn12, 1.1
+set churn13, 390.2694
+mult $churn13, 1.1
+set churn14, 318.7907
+mult $churn14, 1.1
+set churn15, 17.265
+mult $churn15, 1.1
+set churn16, 157.423
+mult $churn16, 1.1
+set churn17, 893.8164
+mult $churn17, 1.1
+set churn18, 39.9374
+mult $churn18, 1.1
+set churn19, 830.6015
+mult $churn19, 1.1
+set churn20, 391.6622
+mult $churn20, 1.1
+set churn21, 610.3141
+mult $churn21, 1.1
+set churn22, 804.7446
+mult $churn22, 1.1
+set churn23, 362.7082
+mult $churn23, 1.1
+set churn24, 212.4951
+mult $churn24, 1.1
+set churn25, 887.3248
+mult $churn25, 1.1
+set churn26, 818.0628
+mult $churn26, 1.1
+set churn27, 415.5154
+mult $churn27, 1.1
+set churn28, 313.813
+mult $churn28, 1.1
+set churn29, 565.7745
+mult $churn29, 1.1
+set churn30, 329.632
+mult $churn30, 1.1
+set churn31, 838.9686
+mult $churn31, 1.1
+set churn32, 945.2371
+mult $churn32, 1.1
+set churn33, 236.4941
+mult $churn33, 1.1
+set churn34, 516.423
+mult $churn34, 1.1
+set churn35, 184.894
+mult $churn35, 1.1
+set churn36, 299.879
+mult $churn36, 1.1
+set churn37, 415.3427
+mult $churn37, 1.1
+set churn38, 901.9097
+mult $churn38, 1.1
+set churn39, 612.9554
+mult $churn39, 1.1
+set churn40, 537.0625
+mult $churn40, 1.1
+set churn41, 314.625
+mult $churn41, 1.1
+set churn42, 288.6157
+mult $churn42, 1.1
+set churn43, 659.4329
+mult $churn43, 1.1
+set churn44, 411.2431
+mult $churn44, 1.1
+set churn45, 931.1402
+mult $churn45, 1.1
+set churn46, 314.624
+mult $churn46, 1.1
+set churn47, 917.0624
+mult $churn47, 1.1
+set churn48, 626.1185
+mult $churn48, 1.1
+set churn49, 243.4299
+mult $churn49, 1.1
+set churn50, 688.2429
+mult $churn50, 1.1
+set churn51, 267.8734
+mult $churn51, 1.1
+set churn52, 119.9375
+mult $churn52, 1.1
+set churn53, 339.1063
+mult $churn53, 1.1
+set churn54, 812.5367
+mult $churn54, 1.1
+set churn55, 869.4971
+mult $churn55, 1.1
+set churn56, 583.5726
+mult $churn56, 1.1
+set churn57, 51.5969
+mult $churn57, 1.1
+set churn58, 480.0281
+mult $churn58, 1.1
+set churn59, 304.7285
+mult $churn59, 1.1
+set churn60, 394.6661
+mult $churn60, 1.1
+set churn61, 949.0241
+mult $churn61, 1.1
+set churn62, 893.7506
+mult $churn62, 1.1
+set churn63, 178.341
+mult $churn63, 1.1
+set churn64, 633.8078
+mult $churn64, 1.1
+set churn65, 790.1361
+mult $churn65, 1.1
+set churn66, 285.4728
+mult $churn66, 1.1
+set churn67, 784.2821
+mult $churn67, 1.1
+set churn68, 488.663
+mult $churn68, 1.1
+set churn69, 952.5682
+mult $churn69, 1.1
+set churn70, 427.5932
+mult $churn70, 1.1
+set churn71, 932.3896
+mult $churn71, 1.1
+set churn72, 994.2231
+mult $churn72, 1.1
+set churn73, 179.4263
+mult $churn73, 1.1
+set churn74, 900.4278
+mult $churn74, 1.1
+set churn75, 852.0993
+mult $churn75, 1.1
+set churn76, 576.9288
+mult $churn76, 1.1
+set churn77, 863.9363
+mult $churn77, 1.1
+set churn78, 196.1592
+mult $churn78, 1.1
+set churn79, 997.3454
+mult $churn79, 1.1
+set churn80, 968.7488
+mult $churn80, 1.1
+set churn81, 599.9874
+mult $churn81, 1.1
+set churn82, 757.6639
+mult $churn82, 1.1
+set churn83, 231.1761
+mult $churn83, 1.1
+set churn84, 250.7269
+mult $churn84, 1.1
+set churn85, 719.0137
+mult $churn85, 1.1
+set churn86, 948.3586
+mult $churn86, 1.1
+set churn87, 583.6458
+mult $churn87, 1.1
+set churn88, 830.8566
+mult $churn88, 1.1
+set churn89, 424.0275
+mult $churn89, 1.1
+set churn90, 611.9801
+mult $churn90, 1.1
+set churn91, 571.6698
+mult $churn91, 1.1
+set churn92, 149.4532
+mult $churn92, 1.1
+set churn93, 678.2294
+mult $churn93, 1.1
+set churn94, 61.2541
+mult $churn94, 1.1
+set churn95, 245.4825
+mult $churn95, 1.1
+set churn96, 289.901
+mult $churn96, 1.1
+set churn97, 589.8794
+mult $churn97, 1.1
+set churn98, 629.2328
+mult $churn98, 1.1
+set churn99, 565.1079
+mult $churn99, 1.1
+set churn100, 733.1048
+mult $churn100, 1.1
+set churn101, 540.2942
+mult $churn101, 1.1
+set churn102, 167.888
+mult $churn102, 1.1
+set churn103, 286.684
+mult $churn103, 1.1
+set churn104, 177.1429
+mult $churn104, 1.1
+set churn105, 293.0728
+mult $churn105, 1.1
+set churn106, 297.7384
+mult $churn106, 1.1
+set churn107, 443.9528
+mult $churn107, 1.1
+set churn108, 789.5349
+mult $churn108, 1.1
+set churn109, 919.614
+mult $churn109, 1.1
+set churn110, 722.4245
+mult $churn110, 1.1
+set churn111, 93.0586
+mult $churn111, 1.1
+set churn112, 751.6922
+mult $churn112, 1.1
+set churn113, 922.7403
+mult $churn113, 1.1
+set churn114, 716.6914
+mult $churn114, 1.1
+set churn115, 265.0159
+mult $churn115, 1.1
+set churn116, 933.5783
+mult $churn116, 1.1
+set churn117, 452.4996
+mult $churn117, 1.1
+set churn118, 44.1535
+mult $churn118, 1.1
+set churn119, 565.3661
+mult $churn119, 1.1
+set churn120, 34.8326
+mult $churn120, 1.1
+set churn121, 527.755
+mult $churn121, 1.1
+set churn122, 455.957
+mult $churn122, 1.1
+set churn123, 68.7974
+mult $churn123, 1.1
+set churn124, 482.3821
+mult $churn124, 1.1
+set churn125, 803.8016
+mult $churn125, 1.1
+set churn126, 202.477
+mult $churn126, 1.1
+set churn127, 350.86
+mult $churn127, 1.1
+set churn128, 35.3407
+mult $churn128, 1.1
+set churn129, 31.3823
+mult $churn129, 1.1
+set churn130, 197.3306
+mult $churn130, 1.1
+set churn131, 631.8289
+mult $churn131, 1.1
+set churn132, 75.6394
+mult $churn132, 1.1
+set churn133, 798.6312
+mult $churn133, 1.1
+set churn134, 53.5451
+mult $churn134, 1.1
+set churn135, 540.6379
+mult $churn135, 1.1
+set churn136, 364.3402
+mult $churn136, 1.1
+set churn137, 158.3216
+mult $churn137, 1.1
+set churn138, 549.421
+mult $churn138, 1.1
+set churn139, 223.0729
+mult $churn139, 1.1
+set churn140, 714.0331
+mult $churn140, 1.1
+set churn141, 806.6341
+mult $churn141, 1.1
+set churn142, 520.4904
+mult $churn142, 1.1
+set churn143, 330.9341
+mult $churn143, 1.1
+set churn144, 156.4468
+mult $churn144, 1.1
+set churn145, 576.2415
+mult $churn145, 1.1
+set churn146, 875.5741
+mult $churn146, 1.1
+set churn147, 241.0073
+mult $churn147, 1.1
+set churn148, 902.6597
+mult $churn148, 1.1
+set churn149, 97.0452
+mult $churn149, 1.1
+set churn150, 514.4918
+mult $churn150, 1.1
+set churn151, 407.4372
+mult $churn151, 1.1
+set churn152, 297.2047
+mult $churn152, 1.1
+set churn153, 167.386
+mult $churn153, 1.1
+set churn154, 821.4028
+mult $churn154, 1.1
+set churn155, 366.0039
+mult $churn155, 1.1
+set churn156, 283.4351
+mult $churn156, 1.1
+set churn157, 423.1648
+mult $churn157, 1.1
+set churn158, 283.8556
+mult $churn158, 1.1
+set churn159, 878.3081
+mult $churn159, 1.1
+set churn160, 489.6468
+mult $churn160, 1.1
+set churn161, 948.1318
+mult $churn161, 1.1
+set churn162, 655.2913
+mult $churn162, 1.1
+set churn163, 138.1692
+mult $churn163, 1.1
+set churn164, 572.4137
+mult $churn164, 1.1
+set churn165, 510.1151
+mult $churn165, 1.1
+set churn166, 587.0805
+mult $churn166, 1.1
+set churn167, 703.8552
+mult $churn167, 1.1
+set churn168, 302.3437
+mult $churn168, 1.1
+set churn169, 263.2599
+mult $churn169, 1.1
+set churn170, 898.1302
+mult $churn170, 1.1
+set churn171, 942.3677
+mult $churn171, 1.1
+set churn172, 378.516
+mult $churn172, 1.1
+set churn173, 118.4631
+mult $churn173, 1.1
+set churn174, 450.441
+mult $churn174, 1.1
+set churn175, 253.4422
+mult $churn175, 1.1
+set churn176, 362.244
+mult $churn176, 1.1
+set churn177, 252.7135
+mult $churn177, 1.1
+set churn178, 30.6388
+mult $churn178, 1.1
+set churn179, 941.6624
+mult $churn179, 1.1
+set churn180, 319.9408
+mult $churn180, 1.1
+set churn181, 445.8964
+mult $churn181, 1.1
+set churn182, 213.366
+mult $churn182, 1.1
+set churn183, 928.9314
+mult $churn183, 1.1
+set churn184, 966.4662
+mult $churn184, 1.1
+set churn185, 862.4218
+mult $churn185, 1.1
+set churn186, 138.6886
+mult $churn186, 1.1
+set churn187, 304.2768
+mult $churn187, 1.1
+set churn188, 445.3401
+mult $churn188, 1.1
+set churn189, 152.0633
+mult $churn189, 1.1
+set churn190, 138.4004
+mult $churn190, 1.1
+set churn191, 908.0209
+mult $churn191, 1.1
+set churn192, 297.1539
+mult $churn192, 1.1
+set churn193, 176.8813
+mult $churn193, 1.1
+set churn194, 32.3056
+mult $churn194, 1.1
+set churn195, 996.4709
+mult $churn195, 1.1
+set churn196, 181.5398
+mult $churn196, 1.1
+set churn197, 847.9042
+mult $churn197, 1.1
+set churn198, 176.9812
+mult $churn198, 1.1
+set churn199, 836.8036
+mult $churn199, 1.1
+say $churn0
+say $churn40
+say $churn80
+say $churn120
+say $churn160
+say "Section 5 complete."
+
+# ----------------------------------------------------------
+# Section 6: Kill Stress (Create + Destroy)
+# ----------------------------------------------------------
+say ""
+say "[Section 6: Kill Stress]"
+set temp0, "disposable_0"
+set temp1, "disposable_1"
+set temp2, "disposable_2"
+set temp3, "disposable_3"
+set temp4, "disposable_4"
+set temp5, "disposable_5"
+set temp6, "disposable_6"
+set temp7, "disposable_7"
+set temp8, "disposable_8"
+set temp9, "disposable_9"
+set temp10, "disposable_10"
+set temp11, "disposable_11"
+set temp12, "disposable_12"
+set temp13, "disposable_13"
+set temp14, "disposable_14"
+set temp15, "disposable_15"
+set temp16, "disposable_16"
+set temp17, "disposable_17"
+set temp18, "disposable_18"
+set temp19, "disposable_19"
+set temp20, "disposable_20"
+set temp21, "disposable_21"
+set temp22, "disposable_22"
+set temp23, "disposable_23"
+set temp24, "disposable_24"
+set temp25, "disposable_25"
+set temp26, "disposable_26"
+set temp27, "disposable_27"
+set temp28, "disposable_28"
+set temp29, "disposable_29"
+set temp30, "disposable_30"
+set temp31, "disposable_31"
+set temp32, "disposable_32"
+set temp33, "disposable_33"
+set temp34, "disposable_34"
+set temp35, "disposable_35"
+set temp36, "disposable_36"
+set temp37, "disposable_37"
+set temp38, "disposable_38"
+set temp39, "disposable_39"
+set temp40, "disposable_40"
+set temp41, "disposable_41"
+set temp42, "disposable_42"
+set temp43, "disposable_43"
+set temp44, "disposable_44"
+set temp45, "disposable_45"
+set temp46, "disposable_46"
+set temp47, "disposable_47"
+set temp48, "disposable_48"
+set temp49, "disposable_49"
+set temp50, "disposable_50"
+set temp51, "disposable_51"
+set temp52, "disposable_52"
+set temp53, "disposable_53"
+set temp54, "disposable_54"
+set temp55, "disposable_55"
+set temp56, "disposable_56"
+set temp57, "disposable_57"
+set temp58, "disposable_58"
+set temp59, "disposable_59"
+set temp60, "disposable_60"
+set temp61, "disposable_61"
+set temp62, "disposable_62"
+set temp63, "disposable_63"
+set temp64, "disposable_64"
+set temp65, "disposable_65"
+set temp66, "disposable_66"
+set temp67, "disposable_67"
+set temp68, "disposable_68"
+set temp69, "disposable_69"
+set temp70, "disposable_70"
+set temp71, "disposable_71"
+set temp72, "disposable_72"
+set temp73, "disposable_73"
+set temp74, "disposable_74"
+set temp75, "disposable_75"
+set temp76, "disposable_76"
+set temp77, "disposable_77"
+set temp78, "disposable_78"
+set temp79, "disposable_79"
+set temp80, "disposable_80"
+set temp81, "disposable_81"
+set temp82, "disposable_82"
+set temp83, "disposable_83"
+set temp84, "disposable_84"
+set temp85, "disposable_85"
+set temp86, "disposable_86"
+set temp87, "disposable_87"
+set temp88, "disposable_88"
+set temp89, "disposable_89"
+set temp90, "disposable_90"
+set temp91, "disposable_91"
+set temp92, "disposable_92"
+set temp93, "disposable_93"
+set temp94, "disposable_94"
+set temp95, "disposable_95"
+set temp96, "disposable_96"
+set temp97, "disposable_97"
+set temp98, "disposable_98"
+set temp99, "disposable_99"
+set temp100, "disposable_100"
+set temp101, "disposable_101"
+set temp102, "disposable_102"
+set temp103, "disposable_103"
+set temp104, "disposable_104"
+set temp105, "disposable_105"
+set temp106, "disposable_106"
+set temp107, "disposable_107"
+set temp108, "disposable_108"
+set temp109, "disposable_109"
+set temp110, "disposable_110"
+set temp111, "disposable_111"
+set temp112, "disposable_112"
+set temp113, "disposable_113"
+set temp114, "disposable_114"
+set temp115, "disposable_115"
+set temp116, "disposable_116"
+set temp117, "disposable_117"
+set temp118, "disposable_118"
+set temp119, "disposable_119"
+set temp120, "disposable_120"
+set temp121, "disposable_121"
+set temp122, "disposable_122"
+set temp123, "disposable_123"
+set temp124, "disposable_124"
+set temp125, "disposable_125"
+set temp126, "disposable_126"
+set temp127, "disposable_127"
+set temp128, "disposable_128"
+set temp129, "disposable_129"
+set temp130, "disposable_130"
+set temp131, "disposable_131"
+set temp132, "disposable_132"
+set temp133, "disposable_133"
+set temp134, "disposable_134"
+set temp135, "disposable_135"
+set temp136, "disposable_136"
+set temp137, "disposable_137"
+set temp138, "disposable_138"
+set temp139, "disposable_139"
+set temp140, "disposable_140"
+set temp141, "disposable_141"
+set temp142, "disposable_142"
+set temp143, "disposable_143"
+set temp144, "disposable_144"
+set temp145, "disposable_145"
+set temp146, "disposable_146"
+set temp147, "disposable_147"
+set temp148, "disposable_148"
+set temp149, "disposable_149"
+kill temp0
+kill temp1
+kill temp2
+kill temp3
+kill temp4
+kill temp5
+kill temp6
+kill temp7
+kill temp8
+kill temp9
+kill temp10
+kill temp11
+kill temp12
+kill temp13
+kill temp14
+kill temp15
+kill temp16
+kill temp17
+kill temp18
+kill temp19
+kill temp20
+kill temp21
+kill temp22
+kill temp23
+kill temp24
+kill temp25
+kill temp26
+kill temp27
+kill temp28
+kill temp29
+kill temp30
+kill temp31
+kill temp32
+kill temp33
+kill temp34
+kill temp35
+kill temp36
+kill temp37
+kill temp38
+kill temp39
+kill temp40
+kill temp41
+kill temp42
+kill temp43
+kill temp44
+kill temp45
+kill temp46
+kill temp47
+kill temp48
+kill temp49
+kill temp50
+kill temp51
+kill temp52
+kill temp53
+kill temp54
+kill temp55
+kill temp56
+kill temp57
+kill temp58
+kill temp59
+kill temp60
+kill temp61
+kill temp62
+kill temp63
+kill temp64
+kill temp65
+kill temp66
+kill temp67
+kill temp68
+kill temp69
+kill temp70
+kill temp71
+kill temp72
+kill temp73
+kill temp74
+kill temp75
+kill temp76
+kill temp77
+kill temp78
+kill temp79
+kill temp80
+kill temp81
+kill temp82
+kill temp83
+kill temp84
+kill temp85
+kill temp86
+kill temp87
+kill temp88
+kill temp89
+kill temp90
+kill temp91
+kill temp92
+kill temp93
+kill temp94
+kill temp95
+kill temp96
+kill temp97
+kill temp98
+kill temp99
+kill temp100
+kill temp101
+kill temp102
+kill temp103
+kill temp104
+kill temp105
+kill temp106
+kill temp107
+kill temp108
+kill temp109
+kill temp110
+kill temp111
+kill temp112
+kill temp113
+kill temp114
+kill temp115
+kill temp116
+kill temp117
+kill temp118
+kill temp119
+kill temp120
+kill temp121
+kill temp122
+kill temp123
+kill temp124
+kill temp125
+kill temp126
+kill temp127
+kill temp128
+kill temp129
+kill temp130
+kill temp131
+kill temp132
+kill temp133
+kill temp134
+kill temp135
+kill temp136
+kill temp137
+kill temp138
+kill temp139
+kill temp140
+kill temp141
+kill temp142
+kill temp143
+kill temp144
+kill temp145
+kill temp146
+kill temp147
+kill temp148
+kill temp149
+say "All temp variables killed."
+say "Section 6 complete."
+
+# ----------------------------------------------------------
+# Section 7: Combined Chaos (Math inside Nested Ifs)
+# ----------------------------------------------------------
+say ""
+say "[Section 7: Chaos]"
+set chaosVal, 10
+set gate1, 1
+set gate2, 1
+set gate3, 0
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 0:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 1:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 2:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 3:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 4:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 5:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 6:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 7:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 8:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 9:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+div $chaosVal, 4
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 10:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 11:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 12:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 13:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 14:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 15:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 16:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 17:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 18:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 19:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+div $chaosVal, 4
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 20:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 21:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 22:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 23:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 24:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 25:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 26:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 27:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 28:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 29:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+div $chaosVal, 4
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 30:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 31:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 32:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 33:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 34:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 35:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 36:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 37:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 38:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 39:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+div $chaosVal, 4
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 40:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 41:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 42:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 43:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 44:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 45:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 46:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 47:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 48:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 49:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+div $chaosVal, 4
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 50:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 51:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 52:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 53:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 54:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 55:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 56:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 57:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 58:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+if $gate1 = 1
+    add $chaosVal, 1
+    if $gate2 = 1
+        mult $chaosVal, 2
+        if $gate3 = 0
+            sub $chaosVal, 3
+            say "Chaos iteration 59:"
+            say $chaosVal
+        endIf
+    endIf
+endIf
+div $chaosVal, 4
+say "Final chaos value:"
+say $chaosVal
+say "Section 7 complete."
+
+# ----------------------------------------------------------
+# Section 8: Ask Test (Interactive)
+# ----------------------------------------------------------
+say ""
+say "[Section 8: Ask Test]"
+ask userName, "Enter your name: "
+say "Hello,"
+say $userName
+ask a, "Enter first number: "
+ask b, "Enter second number: "
+add $a, $b
+say "Sum of your two numbers:"
+say $a
+
+say ""
+say "=== End of Hydra Stress Test ==="

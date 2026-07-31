@@ -3,7 +3,7 @@
 # Tests:
 #   - say
 #   - set
-#   - add / sub / mlt / div
+#   - add / sub / mult / div
 #   - variables
 #   - kill
 #   - nested if statements
@@ -57,7 +57,7 @@ say $health
 
 say "Doubling health..."
 
-mlt $health, $multiplier
+mult $health, $multiplier
 say $health
 
 say "Dividing health by four..."
@@ -76,7 +76,7 @@ say "[Float Test]"
 set pi, 3.14159
 say $pi
 
-mlt $pi, 2
+mult $pi, 2
 say $pi
 
 div $pi, 2
@@ -105,44 +105,54 @@ say $temp
 # If Statements
 # ----------------------------------------------------------
 
-say ""
 say "[If Test]"
 
-set score, 75
+set a, 10
 
-if $score >= 50
+if $a = 10
 
     say "Passed!"
 
-endIf
+else
 
-if $score < 50
-
-    say "This should NOT appear."
+    say "FAILED!"
 
 endIf
 
+say ""
+
+say "[Else Test]"
+
+set a, 5
+
+if $a = 10
+    say "FAILED!"
+else
+    say "Else works!"
+endIf
 
 # ----------------------------------------------------------
 # Nested Ifs
 # ----------------------------------------------------------
 
 say ""
+
 say "[Nested If Test]"
 
 set hasKey, 1
-set doorOpen, 0
+set doorUnlocked, 0
 
 if $hasKey = 1
-
     say "Player has the key."
 
-    if $doorOpen = 0
-
+    if $doorUnlocked = 1
+        say "The door is open."
+    else
         say "The door is locked."
-
     endIf
 
+else
+    say "Player has no key."
 endIf
 
 say "Nested test complete."

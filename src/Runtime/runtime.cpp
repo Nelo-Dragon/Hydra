@@ -85,6 +85,18 @@ void Runtime::Run(const std::vector<Command>& commands)
             continue;
         }
 
+        if (cmd.name == "else") {
+
+            if (argA != 0) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            isIf = Else(cmd, isIf);
+            continue;
+        }
+
         if (cmd.name == "endIf") {
             
             if (argA != 0) {
@@ -99,7 +111,7 @@ void Runtime::Run(const std::vector<Command>& commands)
                 continue;
             }
 
-            isIf = EndIf(isIf);
+            isIf = EndIf(cmd, isIf);
 
             continue;
         }
@@ -173,7 +185,7 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             Add(cmd);
         }
-        else if (cmd.name == "sub") {
+        else if (cmd.name == "sub" || cmd.name == "subtract") {
 
             if (argA < 2) {
 
@@ -183,7 +195,7 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             Sub(cmd);
         }
-        else if (cmd.name == "mlt") {
+        else if (cmd.name == "mult" || cmd.name == "multiply") {
 
             if (argA < 2) {
 
@@ -193,7 +205,7 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             Mlt(cmd);
         }
-        else if (cmd.name == "div") {
+        else if (cmd.name == "div" || cmd.name == "divide") {
 
             if (argA < 2) {
 
