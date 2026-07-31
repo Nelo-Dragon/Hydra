@@ -236,6 +236,17 @@ void Runtime::Div(const Command& cmd) {
     variables.Set(target.name, FtoS(varAmt));
 }
 
+void Runtime::Ask(const Command& cmd) {
+
+    std::string input;
+
+    std::cout << cmd.args[1];
+    std::getline(std::cin, input);
+
+    variables.Set(cmd.args[0], input);
+
+}
+
 void Runtime::Kll(const Command& cmd) {
 
     for (size_t i = 0; i < cmd.args.size(); i++) {

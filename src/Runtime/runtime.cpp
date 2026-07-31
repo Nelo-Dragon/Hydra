@@ -153,6 +153,16 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             Kll(cmd);
         }
+        else if (cmd.name == "ask") {
+
+            if (argA != 2) {
+
+                RuntimeError(cmd,argErr);
+                continue;
+            }
+
+            Ask(cmd);
+        }
         else if (cmd.name == "add") {
 
             if (argA < 2) {

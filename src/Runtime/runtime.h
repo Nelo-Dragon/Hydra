@@ -28,6 +28,7 @@ private:
     void Sub(const Command& cmd);
     void Mlt(const Command& cmd);
     void Div(const Command& cmd);
+    void Ask(const Command& cmd);
 
     IsIf If(const Command& cmd, const IsIf& inIf);
     IsIf EndIf(const IsIf& inIf);
