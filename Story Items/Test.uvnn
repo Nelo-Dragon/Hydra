@@ -112,12 +112,17 @@ set a, 10
 if $a = 10
 
     say "Passed!"
+elif $a < 9
 
+    say "FAILED Elif!"
+elseIf $a > 9
+
+    say "PASSED Elif!"
 else
 
     say "FAILED!"
 
-endIf
+end
 
 say ""
 
@@ -125,11 +130,11 @@ say "[Else Test]"
 
 set a, 5
 
-if $a = 10
+if $a > 10
     say "FAILED!"
 else
     say "Else works!"
-endIf
+end
 
 # ----------------------------------------------------------
 # Nested Ifs
@@ -149,11 +154,11 @@ if $hasKey = 1
         say "The door is open."
     else
         say "The door is locked."
-    endIf
+    end
 
 else
     say "Player has no key."
-endIf
+end
 
 say "Nested test complete."
 

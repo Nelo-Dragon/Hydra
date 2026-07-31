@@ -85,6 +85,18 @@ void Runtime::Run(const std::vector<Command>& commands)
             continue;
         }
 
+        if (cmd.name == "elseIf" || cmd.name == "elif") {
+
+            if (argA !=3) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            isIf = ElseIf(cmd, isIf);
+            continue;
+        }
+
         if (cmd.name == "else") {
 
             if (argA != 0) {
@@ -97,7 +109,7 @@ void Runtime::Run(const std::vector<Command>& commands)
             continue;
         }
 
-        if (cmd.name == "endIf") {
+        if (cmd.name == "end") {
             
             if (argA != 0) {
 

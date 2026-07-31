@@ -283,6 +283,23 @@ Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf) {
     return curIf;
 }
 
+Runtime::IsIf Runtime::ElseIf(const Command& cmd, const IsIf& inIf) {
+
+    IsIf curIf = inIf;
+
+    if (curIf.ifBad.empty()) {
+
+        RuntimeError(cmd, "Unexpected else.");
+        return curIf;
+    }
+
+    IsIf newIf = If(cmd, curIf);
+
+    curIf.ifBad.back() = newIf.ifBad.back();
+
+    return curIf;
+}
+
 Runtime::IsIf Runtime::Else(const Command& cmd, const IsIf& inIf) {
 
     IsIf curIf = inIf;

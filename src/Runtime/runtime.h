@@ -31,6 +31,7 @@ private:
     void Ask(const Command& cmd);
 
     IsIf If(const Command& cmd, const IsIf& inIf);
+    IsIf ElseIf(const Command& cmd, const IsIf& inIf);
     IsIf Else(const Command& cmd, const IsIf& inIf);
     IsIf EndIf(const Command& cmd, const IsIf& inIf);
 
