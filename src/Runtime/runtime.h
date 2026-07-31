@@ -17,13 +17,15 @@ private:
     {
 
         std::vector<bool> ifBad;
+        std::vector<bool> branchTaken;
+        std::vector<int> lineN;
     };
 
     struct IsLoop
     {
 
         std::vector<bool> isOut;
-        std::vector<int> loopN;
+        std::vector<int> lineN;
         std::vector<int> iteration;
     };
 
@@ -37,6 +39,9 @@ private:
     void Mlt(const Command& cmd);
     void Div(const Command& cmd);
     void Ask(const Command& cmd);
+
+    IsLoop Loop(const Command& cmd, const IsLoop& isLoop);
+    IsLoop EndLoop(const Command& cmd, const IsLoop& isLoop);
 
     IsIf If(const Command& cmd, const IsIf& inIf);
     IsIf ElseIf(const Command& cmd, const IsIf& inIf);

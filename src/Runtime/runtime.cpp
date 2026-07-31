@@ -67,9 +67,11 @@ void Runtime::Run(const std::vector<Command>& commands)
     std::string argErr = "Argument amount wrong.";
 
     IsIf isIf;
-    
+    IsLoop isLoop;
 
-    for (const Command& cmd : commands) {
+    for (size_t i = 0; i < commands.size(); i++) {
+
+        Command cmd = commands[i];
         
         int argA = cmd.args.size();
 
@@ -109,6 +111,18 @@ void Runtime::Run(const std::vector<Command>& commands)
             continue;
         }
 
+        if (cmd.name == "loop") {
+
+            if (argA != 1) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            isLoop = Loop(cmd, isLoop);
+            continue;
+        }
+
         if (cmd.name == "end") {
             
             if (argA != 0) {
@@ -117,13 +131,40 @@ void Runtime::Run(const std::vector<Command>& commands)
                 continue;
             }
 
-            if (isIf.ifBad.empty()) {
+            bool hasIf = !isIf.lineN.empty();
+            bool hasLoop = !isLoop.lineN.empty();
 
-                RuntimeError(cmd, "Unexpected endIf.");
+            if (!hasIf && !hasLoop) {
+
+                RuntimeError(cmd, "Unexpected end.");
                 continue;
             }
 
-            isIf = EndIf(cmd, isIf);
+            if (hasIf && hasLoop) {
+
+                if (isIf.lineN.back() > isLoop.lineN.back()) {
+
+                    isIf = EndIf(cmd, isIf);
+                }
+                else {
+
+                    isLoop = EndLoop(cmd, isLoop);
+                    i = isLoop.lineN.back() - 1;
+                }
+            }
+            else if (hasIf) {
+
+                isIf = EndIf(cmd, isIf);
+            }
+            else {
+
+                isLoop = EndLoop(cmd, isLoop);
+
+                if (!isLoop.lineN.empty()) {
+
+                    i = isLoop.lineN.back() - 1;
+                }
+            }
 
             continue;
         }

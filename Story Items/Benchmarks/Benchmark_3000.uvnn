@@ -343,511 +343,511 @@ set stepB, 2
 set stepC, 5
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-say "Checkpoint counter:"
-say $counter
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 say "Checkpoint counter:"
 say $counter
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-say "Checkpoint counter:"
-say $counter
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
-div $counter, $stepB
-add $counter, $stepA
-sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 say "Checkpoint counter:"
 say $counter
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
 div $counter, $stepB
 add $counter, $stepA
 sub $counter, $stepB
-mlt $counter, $stepC
+mult $counter, $stepC
+div $counter, $stepB
+say "Checkpoint counter:"
+say $counter
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+say "Checkpoint counter:"
+say $counter
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
+div $counter, $stepB
+add $counter, $stepA
+sub $counter, $stepB
+mult $counter, $stepC
 div $counter, $stepB
 say "Checkpoint counter:"
 say $counter
@@ -2258,405 +2258,405 @@ say "Section 4 complete."
 say ""
 say "[Section 5: Mixed Churn]"
 set churn0, 899.5645
-mlt $churn0, 1.1
+mult $churn0, 1.1
 set churn1, 149.1025
-mlt $churn1, 1.1
+mult $churn1, 1.1
 set churn2, 565.3844
-mlt $churn2, 1.1
+mult $churn2, 1.1
 set churn3, 686.8445
-mlt $churn3, 1.1
+mult $churn3, 1.1
 set churn4, 98.6001
-mlt $churn4, 1.1
+mult $churn4, 1.1
 set churn5, 590.5824
-mlt $churn5, 1.1
+mult $churn5, 1.1
 set churn6, 686.5345
-mlt $churn6, 1.1
+mult $churn6, 1.1
 set churn7, 308.8452
-mlt $churn7, 1.1
+mult $churn7, 1.1
 set churn8, 480.8981
-mlt $churn8, 1.1
+mult $churn8, 1.1
 set churn9, 85.1671
-mlt $churn9, 1.1
+mult $churn9, 1.1
 set churn10, 84.8067
-mlt $churn10, 1.1
+mult $churn10, 1.1
 set churn11, 564.992
-mlt $churn11, 1.1
+mult $churn11, 1.1
 set churn12, 926.9623
-mlt $churn12, 1.1
+mult $churn12, 1.1
 set churn13, 390.2694
-mlt $churn13, 1.1
+mult $churn13, 1.1
 set churn14, 318.7907
-mlt $churn14, 1.1
+mult $churn14, 1.1
 set churn15, 17.265
-mlt $churn15, 1.1
+mult $churn15, 1.1
 set churn16, 157.423
-mlt $churn16, 1.1
+mult $churn16, 1.1
 set churn17, 893.8164
-mlt $churn17, 1.1
+mult $churn17, 1.1
 set churn18, 39.9374
-mlt $churn18, 1.1
+mult $churn18, 1.1
 set churn19, 830.6015
-mlt $churn19, 1.1
+mult $churn19, 1.1
 set churn20, 391.6622
-mlt $churn20, 1.1
+mult $churn20, 1.1
 set churn21, 610.3141
-mlt $churn21, 1.1
+mult $churn21, 1.1
 set churn22, 804.7446
-mlt $churn22, 1.1
+mult $churn22, 1.1
 set churn23, 362.7082
-mlt $churn23, 1.1
+mult $churn23, 1.1
 set churn24, 212.4951
-mlt $churn24, 1.1
+mult $churn24, 1.1
 set churn25, 887.3248
-mlt $churn25, 1.1
+mult $churn25, 1.1
 set churn26, 818.0628
-mlt $churn26, 1.1
+mult $churn26, 1.1
 set churn27, 415.5154
-mlt $churn27, 1.1
+mult $churn27, 1.1
 set churn28, 313.813
-mlt $churn28, 1.1
+mult $churn28, 1.1
 set churn29, 565.7745
-mlt $churn29, 1.1
+mult $churn29, 1.1
 set churn30, 329.632
-mlt $churn30, 1.1
+mult $churn30, 1.1
 set churn31, 838.9686
-mlt $churn31, 1.1
+mult $churn31, 1.1
 set churn32, 945.2371
-mlt $churn32, 1.1
+mult $churn32, 1.1
 set churn33, 236.4941
-mlt $churn33, 1.1
+mult $churn33, 1.1
 set churn34, 516.423
-mlt $churn34, 1.1
+mult $churn34, 1.1
 set churn35, 184.894
-mlt $churn35, 1.1
+mult $churn35, 1.1
 set churn36, 299.879
-mlt $churn36, 1.1
+mult $churn36, 1.1
 set churn37, 415.3427
-mlt $churn37, 1.1
+mult $churn37, 1.1
 set churn38, 901.9097
-mlt $churn38, 1.1
+mult $churn38, 1.1
 set churn39, 612.9554
-mlt $churn39, 1.1
+mult $churn39, 1.1
 set churn40, 537.0625
-mlt $churn40, 1.1
+mult $churn40, 1.1
 set churn41, 314.625
-mlt $churn41, 1.1
+mult $churn41, 1.1
 set churn42, 288.6157
-mlt $churn42, 1.1
+mult $churn42, 1.1
 set churn43, 659.4329
-mlt $churn43, 1.1
+mult $churn43, 1.1
 set churn44, 411.2431
-mlt $churn44, 1.1
+mult $churn44, 1.1
 set churn45, 931.1402
-mlt $churn45, 1.1
+mult $churn45, 1.1
 set churn46, 314.624
-mlt $churn46, 1.1
+mult $churn46, 1.1
 set churn47, 917.0624
-mlt $churn47, 1.1
+mult $churn47, 1.1
 set churn48, 626.1185
-mlt $churn48, 1.1
+mult $churn48, 1.1
 set churn49, 243.4299
-mlt $churn49, 1.1
+mult $churn49, 1.1
 set churn50, 688.2429
-mlt $churn50, 1.1
+mult $churn50, 1.1
 set churn51, 267.8734
-mlt $churn51, 1.1
+mult $churn51, 1.1
 set churn52, 119.9375
-mlt $churn52, 1.1
+mult $churn52, 1.1
 set churn53, 339.1063
-mlt $churn53, 1.1
+mult $churn53, 1.1
 set churn54, 812.5367
-mlt $churn54, 1.1
+mult $churn54, 1.1
 set churn55, 869.4971
-mlt $churn55, 1.1
+mult $churn55, 1.1
 set churn56, 583.5726
-mlt $churn56, 1.1
+mult $churn56, 1.1
 set churn57, 51.5969
-mlt $churn57, 1.1
+mult $churn57, 1.1
 set churn58, 480.0281
-mlt $churn58, 1.1
+mult $churn58, 1.1
 set churn59, 304.7285
-mlt $churn59, 1.1
+mult $churn59, 1.1
 set churn60, 394.6661
-mlt $churn60, 1.1
+mult $churn60, 1.1
 set churn61, 949.0241
-mlt $churn61, 1.1
+mult $churn61, 1.1
 set churn62, 893.7506
-mlt $churn62, 1.1
+mult $churn62, 1.1
 set churn63, 178.341
-mlt $churn63, 1.1
+mult $churn63, 1.1
 set churn64, 633.8078
-mlt $churn64, 1.1
+mult $churn64, 1.1
 set churn65, 790.1361
-mlt $churn65, 1.1
+mult $churn65, 1.1
 set churn66, 285.4728
-mlt $churn66, 1.1
+mult $churn66, 1.1
 set churn67, 784.2821
-mlt $churn67, 1.1
+mult $churn67, 1.1
 set churn68, 488.663
-mlt $churn68, 1.1
+mult $churn68, 1.1
 set churn69, 952.5682
-mlt $churn69, 1.1
+mult $churn69, 1.1
 set churn70, 427.5932
-mlt $churn70, 1.1
+mult $churn70, 1.1
 set churn71, 932.3896
-mlt $churn71, 1.1
+mult $churn71, 1.1
 set churn72, 994.2231
-mlt $churn72, 1.1
+mult $churn72, 1.1
 set churn73, 179.4263
-mlt $churn73, 1.1
+mult $churn73, 1.1
 set churn74, 900.4278
-mlt $churn74, 1.1
+mult $churn74, 1.1
 set churn75, 852.0993
-mlt $churn75, 1.1
+mult $churn75, 1.1
 set churn76, 576.9288
-mlt $churn76, 1.1
+mult $churn76, 1.1
 set churn77, 863.9363
-mlt $churn77, 1.1
+mult $churn77, 1.1
 set churn78, 196.1592
-mlt $churn78, 1.1
+mult $churn78, 1.1
 set churn79, 997.3454
-mlt $churn79, 1.1
+mult $churn79, 1.1
 set churn80, 968.7488
-mlt $churn80, 1.1
+mult $churn80, 1.1
 set churn81, 599.9874
-mlt $churn81, 1.1
+mult $churn81, 1.1
 set churn82, 757.6639
-mlt $churn82, 1.1
+mult $churn82, 1.1
 set churn83, 231.1761
-mlt $churn83, 1.1
+mult $churn83, 1.1
 set churn84, 250.7269
-mlt $churn84, 1.1
+mult $churn84, 1.1
 set churn85, 719.0137
-mlt $churn85, 1.1
+mult $churn85, 1.1
 set churn86, 948.3586
-mlt $churn86, 1.1
+mult $churn86, 1.1
 set churn87, 583.6458
-mlt $churn87, 1.1
+mult $churn87, 1.1
 set churn88, 830.8566
-mlt $churn88, 1.1
+mult $churn88, 1.1
 set churn89, 424.0275
-mlt $churn89, 1.1
+mult $churn89, 1.1
 set churn90, 611.9801
-mlt $churn90, 1.1
+mult $churn90, 1.1
 set churn91, 571.6698
-mlt $churn91, 1.1
+mult $churn91, 1.1
 set churn92, 149.4532
-mlt $churn92, 1.1
+mult $churn92, 1.1
 set churn93, 678.2294
-mlt $churn93, 1.1
+mult $churn93, 1.1
 set churn94, 61.2541
-mlt $churn94, 1.1
+mult $churn94, 1.1
 set churn95, 245.4825
-mlt $churn95, 1.1
+mult $churn95, 1.1
 set churn96, 289.901
-mlt $churn96, 1.1
+mult $churn96, 1.1
 set churn97, 589.8794
-mlt $churn97, 1.1
+mult $churn97, 1.1
 set churn98, 629.2328
-mlt $churn98, 1.1
+mult $churn98, 1.1
 set churn99, 565.1079
-mlt $churn99, 1.1
+mult $churn99, 1.1
 set churn100, 733.1048
-mlt $churn100, 1.1
+mult $churn100, 1.1
 set churn101, 540.2942
-mlt $churn101, 1.1
+mult $churn101, 1.1
 set churn102, 167.888
-mlt $churn102, 1.1
+mult $churn102, 1.1
 set churn103, 286.684
-mlt $churn103, 1.1
+mult $churn103, 1.1
 set churn104, 177.1429
-mlt $churn104, 1.1
+mult $churn104, 1.1
 set churn105, 293.0728
-mlt $churn105, 1.1
+mult $churn105, 1.1
 set churn106, 297.7384
-mlt $churn106, 1.1
+mult $churn106, 1.1
 set churn107, 443.9528
-mlt $churn107, 1.1
+mult $churn107, 1.1
 set churn108, 789.5349
-mlt $churn108, 1.1
+mult $churn108, 1.1
 set churn109, 919.614
-mlt $churn109, 1.1
+mult $churn109, 1.1
 set churn110, 722.4245
-mlt $churn110, 1.1
+mult $churn110, 1.1
 set churn111, 93.0586
-mlt $churn111, 1.1
+mult $churn111, 1.1
 set churn112, 751.6922
-mlt $churn112, 1.1
+mult $churn112, 1.1
 set churn113, 922.7403
-mlt $churn113, 1.1
+mult $churn113, 1.1
 set churn114, 716.6914
-mlt $churn114, 1.1
+mult $churn114, 1.1
 set churn115, 265.0159
-mlt $churn115, 1.1
+mult $churn115, 1.1
 set churn116, 933.5783
-mlt $churn116, 1.1
+mult $churn116, 1.1
 set churn117, 452.4996
-mlt $churn117, 1.1
+mult $churn117, 1.1
 set churn118, 44.1535
-mlt $churn118, 1.1
+mult $churn118, 1.1
 set churn119, 565.3661
-mlt $churn119, 1.1
+mult $churn119, 1.1
 set churn120, 34.8326
-mlt $churn120, 1.1
+mult $churn120, 1.1
 set churn121, 527.755
-mlt $churn121, 1.1
+mult $churn121, 1.1
 set churn122, 455.957
-mlt $churn122, 1.1
+mult $churn122, 1.1
 set churn123, 68.7974
-mlt $churn123, 1.1
+mult $churn123, 1.1
 set churn124, 482.3821
-mlt $churn124, 1.1
+mult $churn124, 1.1
 set churn125, 803.8016
-mlt $churn125, 1.1
+mult $churn125, 1.1
 set churn126, 202.477
-mlt $churn126, 1.1
+mult $churn126, 1.1
 set churn127, 350.86
-mlt $churn127, 1.1
+mult $churn127, 1.1
 set churn128, 35.3407
-mlt $churn128, 1.1
+mult $churn128, 1.1
 set churn129, 31.3823
-mlt $churn129, 1.1
+mult $churn129, 1.1
 set churn130, 197.3306
-mlt $churn130, 1.1
+mult $churn130, 1.1
 set churn131, 631.8289
-mlt $churn131, 1.1
+mult $churn131, 1.1
 set churn132, 75.6394
-mlt $churn132, 1.1
+mult $churn132, 1.1
 set churn133, 798.6312
-mlt $churn133, 1.1
+mult $churn133, 1.1
 set churn134, 53.5451
-mlt $churn134, 1.1
+mult $churn134, 1.1
 set churn135, 540.6379
-mlt $churn135, 1.1
+mult $churn135, 1.1
 set churn136, 364.3402
-mlt $churn136, 1.1
+mult $churn136, 1.1
 set churn137, 158.3216
-mlt $churn137, 1.1
+mult $churn137, 1.1
 set churn138, 549.421
-mlt $churn138, 1.1
+mult $churn138, 1.1
 set churn139, 223.0729
-mlt $churn139, 1.1
+mult $churn139, 1.1
 set churn140, 714.0331
-mlt $churn140, 1.1
+mult $churn140, 1.1
 set churn141, 806.6341
-mlt $churn141, 1.1
+mult $churn141, 1.1
 set churn142, 520.4904
-mlt $churn142, 1.1
+mult $churn142, 1.1
 set churn143, 330.9341
-mlt $churn143, 1.1
+mult $churn143, 1.1
 set churn144, 156.4468
-mlt $churn144, 1.1
+mult $churn144, 1.1
 set churn145, 576.2415
-mlt $churn145, 1.1
+mult $churn145, 1.1
 set churn146, 875.5741
-mlt $churn146, 1.1
+mult $churn146, 1.1
 set churn147, 241.0073
-mlt $churn147, 1.1
+mult $churn147, 1.1
 set churn148, 902.6597
-mlt $churn148, 1.1
+mult $churn148, 1.1
 set churn149, 97.0452
-mlt $churn149, 1.1
+mult $churn149, 1.1
 set churn150, 514.4918
-mlt $churn150, 1.1
+mult $churn150, 1.1
 set churn151, 407.4372
-mlt $churn151, 1.1
+mult $churn151, 1.1
 set churn152, 297.2047
-mlt $churn152, 1.1
+mult $churn152, 1.1
 set churn153, 167.386
-mlt $churn153, 1.1
+mult $churn153, 1.1
 set churn154, 821.4028
-mlt $churn154, 1.1
+mult $churn154, 1.1
 set churn155, 366.0039
-mlt $churn155, 1.1
+mult $churn155, 1.1
 set churn156, 283.4351
-mlt $churn156, 1.1
+mult $churn156, 1.1
 set churn157, 423.1648
-mlt $churn157, 1.1
+mult $churn157, 1.1
 set churn158, 283.8556
-mlt $churn158, 1.1
+mult $churn158, 1.1
 set churn159, 878.3081
-mlt $churn159, 1.1
+mult $churn159, 1.1
 set churn160, 489.6468
-mlt $churn160, 1.1
+mult $churn160, 1.1
 set churn161, 948.1318
-mlt $churn161, 1.1
+mult $churn161, 1.1
 set churn162, 655.2913
-mlt $churn162, 1.1
+mult $churn162, 1.1
 set churn163, 138.1692
-mlt $churn163, 1.1
+mult $churn163, 1.1
 set churn164, 572.4137
-mlt $churn164, 1.1
+mult $churn164, 1.1
 set churn165, 510.1151
-mlt $churn165, 1.1
+mult $churn165, 1.1
 set churn166, 587.0805
-mlt $churn166, 1.1
+mult $churn166, 1.1
 set churn167, 703.8552
-mlt $churn167, 1.1
+mult $churn167, 1.1
 set churn168, 302.3437
-mlt $churn168, 1.1
+mult $churn168, 1.1
 set churn169, 263.2599
-mlt $churn169, 1.1
+mult $churn169, 1.1
 set churn170, 898.1302
-mlt $churn170, 1.1
+mult $churn170, 1.1
 set churn171, 942.3677
-mlt $churn171, 1.1
+mult $churn171, 1.1
 set churn172, 378.516
-mlt $churn172, 1.1
+mult $churn172, 1.1
 set churn173, 118.4631
-mlt $churn173, 1.1
+mult $churn173, 1.1
 set churn174, 450.441
-mlt $churn174, 1.1
+mult $churn174, 1.1
 set churn175, 253.4422
-mlt $churn175, 1.1
+mult $churn175, 1.1
 set churn176, 362.244
-mlt $churn176, 1.1
+mult $churn176, 1.1
 set churn177, 252.7135
-mlt $churn177, 1.1
+mult $churn177, 1.1
 set churn178, 30.6388
-mlt $churn178, 1.1
+mult $churn178, 1.1
 set churn179, 941.6624
-mlt $churn179, 1.1
+mult $churn179, 1.1
 set churn180, 319.9408
-mlt $churn180, 1.1
+mult $churn180, 1.1
 set churn181, 445.8964
-mlt $churn181, 1.1
+mult $churn181, 1.1
 set churn182, 213.366
-mlt $churn182, 1.1
+mult $churn182, 1.1
 set churn183, 928.9314
-mlt $churn183, 1.1
+mult $churn183, 1.1
 set churn184, 966.4662
-mlt $churn184, 1.1
+mult $churn184, 1.1
 set churn185, 862.4218
-mlt $churn185, 1.1
+mult $churn185, 1.1
 set churn186, 138.6886
-mlt $churn186, 1.1
+mult $churn186, 1.1
 set churn187, 304.2768
-mlt $churn187, 1.1
+mult $churn187, 1.1
 set churn188, 445.3401
-mlt $churn188, 1.1
+mult $churn188, 1.1
 set churn189, 152.0633
-mlt $churn189, 1.1
+mult $churn189, 1.1
 set churn190, 138.4004
-mlt $churn190, 1.1
+mult $churn190, 1.1
 set churn191, 908.0209
-mlt $churn191, 1.1
+mult $churn191, 1.1
 set churn192, 297.1539
-mlt $churn192, 1.1
+mult $churn192, 1.1
 set churn193, 176.8813
-mlt $churn193, 1.1
+mult $churn193, 1.1
 set churn194, 32.3056
-mlt $churn194, 1.1
+mult $churn194, 1.1
 set churn195, 996.4709
-mlt $churn195, 1.1
+mult $churn195, 1.1
 set churn196, 181.5398
-mlt $churn196, 1.1
+mult $churn196, 1.1
 set churn197, 847.9042
-mlt $churn197, 1.1
+mult $churn197, 1.1
 set churn198, 176.9812
-mlt $churn198, 1.1
+mult $churn198, 1.1
 set churn199, 836.8036
-mlt $churn199, 1.1
+mult $churn199, 1.1
 say $churn0
 say $churn40
 say $churn80
@@ -2984,7 +2984,7 @@ set gate3, 0
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 0:"
@@ -2995,7 +2995,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 1:"
@@ -3006,7 +3006,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 2:"
@@ -3017,7 +3017,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 3:"
@@ -3028,7 +3028,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 4:"
@@ -3039,7 +3039,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 5:"
@@ -3050,7 +3050,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 6:"
@@ -3061,7 +3061,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 7:"
@@ -3072,7 +3072,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 8:"
@@ -3083,7 +3083,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 9:"
@@ -3095,7 +3095,7 @@ div $chaosVal, 4
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 10:"
@@ -3106,7 +3106,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 11:"
@@ -3117,7 +3117,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 12:"
@@ -3128,7 +3128,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 13:"
@@ -3139,7 +3139,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 14:"
@@ -3150,7 +3150,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 15:"
@@ -3161,7 +3161,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 16:"
@@ -3172,7 +3172,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 17:"
@@ -3183,7 +3183,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 18:"
@@ -3194,7 +3194,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 19:"
@@ -3206,7 +3206,7 @@ div $chaosVal, 4
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 20:"
@@ -3217,7 +3217,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 21:"
@@ -3228,7 +3228,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 22:"
@@ -3239,7 +3239,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 23:"
@@ -3250,7 +3250,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 24:"
@@ -3261,7 +3261,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 25:"
@@ -3272,7 +3272,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 26:"
@@ -3283,7 +3283,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 27:"
@@ -3294,7 +3294,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 28:"
@@ -3305,7 +3305,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 29:"
@@ -3317,7 +3317,7 @@ div $chaosVal, 4
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 30:"
@@ -3328,7 +3328,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 31:"
@@ -3339,7 +3339,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 32:"
@@ -3350,7 +3350,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 33:"
@@ -3361,7 +3361,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 34:"
@@ -3372,7 +3372,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 35:"
@@ -3383,7 +3383,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 36:"
@@ -3394,7 +3394,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 37:"
@@ -3405,7 +3405,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 38:"
@@ -3416,7 +3416,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 39:"
@@ -3428,7 +3428,7 @@ div $chaosVal, 4
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 40:"
@@ -3439,7 +3439,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 41:"
@@ -3450,7 +3450,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 42:"
@@ -3461,7 +3461,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 43:"
@@ -3472,7 +3472,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 44:"
@@ -3483,7 +3483,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 45:"
@@ -3494,7 +3494,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 46:"
@@ -3505,7 +3505,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 47:"
@@ -3516,7 +3516,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 48:"
@@ -3527,7 +3527,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 49:"
@@ -3539,7 +3539,7 @@ div $chaosVal, 4
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 50:"
@@ -3550,7 +3550,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 51:"
@@ -3561,7 +3561,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 52:"
@@ -3572,7 +3572,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 53:"
@@ -3583,7 +3583,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 54:"
@@ -3594,7 +3594,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 55:"
@@ -3605,7 +3605,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 56:"
@@ -3616,7 +3616,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 57:"
@@ -3627,7 +3627,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 58:"
@@ -3638,7 +3638,7 @@ end
 if $gate1 = 1
     add $chaosVal, 1
     if $gate2 = 1
-        mlt $chaosVal, 2
+        mult $chaosVal, 2
         if $gate3 = 0
             sub $chaosVal, 3
             say "Chaos iteration 59:"

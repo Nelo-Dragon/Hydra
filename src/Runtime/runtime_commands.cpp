@@ -265,20 +265,26 @@ Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf) {
     std::string b;
 
     if (varA.var) {
+
         a = variables.Get(varA.name);
     }
     else {
+
         a = cmd.args[0];
     }
 
     if (varB.var) {
+
         b = variables.Get(varB.name);
     }
     else {
+
         b = cmd.args[2];
     }
 
     curIf.ifBad.push_back(!Compare(a, cmd.args[1], b));
+    curIf.branchTaken.push_back(Compare(a, cmd.args[1], b));
+    curIf.lineN.push_back(cmd.line);
 
     return curIf;
 }
@@ -293,9 +299,45 @@ Runtime::IsIf Runtime::ElseIf(const Command& cmd, const IsIf& inIf) {
         return curIf;
     }
 
-    IsIf newIf = If(cmd, curIf);
+    VarCheck varA = variables.IsVar(cmd.args[0]);
+    VarCheck varB = variables.IsVar(cmd.args[2]);
 
-    curIf.ifBad.back() = newIf.ifBad.back();
+    std::string a;
+    std::string b;
+
+    if (varA.var) {
+
+        a = variables.Get(varA.name);
+    }
+    else {
+
+        a = cmd.args[0];
+    }
+
+    if (varB.var) {
+
+        b = variables.Get(varB.name);
+    }
+    else {
+
+        b = cmd.args[2];
+    }
+
+    if (curIf.branchTaken.back()) {
+
+        curIf.ifBad.back() = true;
+    }
+    else {
+
+        bool result = Compare(a, cmd.args[1], b);
+
+        curIf.ifBad.back() = !result;
+
+        if (result) {
+
+            curIf.branchTaken.back() = true;
+        }
+    }
 
     return curIf;
 }
@@ -310,7 +352,15 @@ Runtime::IsIf Runtime::Else(const Command& cmd, const IsIf& inIf) {
         return curIf;
     }
 
-    curIf.ifBad.back() = !curIf.ifBad.back();
+    if (curIf.branchTaken.back()) {
+
+        curIf.ifBad.back() = true;
+    }
+    else {
+
+        curIf.ifBad.back() = false;
+        curIf.branchTaken.back() = true;
+    }
 
     return curIf;
 }
@@ -326,6 +376,61 @@ Runtime::IsIf Runtime::EndIf(const Command& cmd, const IsIf& inIf) {
     }
 
     curIf.ifBad.pop_back();
+    curIf.lineN.pop_back();
 
     return curIf;
+}
+
+Runtime::IsLoop Runtime::Loop(const Command& cmd, const IsLoop& isLoop) {
+
+    IsLoop curLoop = isLoop;
+
+    VarCheck var = variables.IsVar(cmd.args[0]);
+
+    int iterations;
+
+    if (!var.var) {
+
+        iterations = std::stoi(cmd.args[0]);
+    }
+    else {
+
+        iterations = std::stoi(variables.Get(cmd.args[0]));
+    }
+
+    if (iterations <= 0) {
+
+        RuntimeError(cmd, "Iteration number less than 1.");
+        return curLoop;
+    }
+
+    curLoop.lineN.push_back(cmd.line);
+    
+    curLoop.iteration.push_back(iterations);
+
+    curLoop.isOut.push_back(false);
+
+    return curLoop;
+}
+
+Runtime::IsLoop Runtime::EndLoop(const Command& cmd, const IsLoop& isLoop) {
+
+    IsLoop curLoop = isLoop;
+
+    int iterations;
+
+    iterations = curLoop.iteration.back();
+    
+
+    if (iterations <= 0) {
+
+        curLoop.isOut.pop_back();
+        curLoop.iteration.pop_back();
+        curLoop.lineN.pop_back();
+        return curLoop;
+    }
+
+    curLoop.iteration.back() -= 1;
+
+    return curLoop;
 }
