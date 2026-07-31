@@ -1,43 +1,155 @@
-say "Hello World!"
-say "This is my Test.uvnn"
-say "Heres some add and subtract action."
+# ==========================================================
+# Hydra Test Script
+# Tests:
+#   - say
+#   - set
+#   - add / sub / mlt / div
+#   - variables
+#   - kill
+#   - nested if statements
+# ==========================================================
 
-set health, 100 # This is a comment
-say "Initulized health to 100."
+say "=== Hydra Runtime Test ==="
+
+# ----------------------------------------------------------
+# Variables
+# ----------------------------------------------------------
+
+say ""
+say "[Variable Test]"
+
+set player, "Aretē"
+set health, 100
+set gold, 50
+
+say "Player:"
+say $player
+
+say "Health:"
 say $health
 
-set heal, 20
+say "Gold:"
+say $gold
+
+
+# ----------------------------------------------------------
+# Math
+# ----------------------------------------------------------
+
+say ""
+say "[Math Test]"
+
+set heal, 25
 set damage, 10
-say "Initulized heal to 20 and damage to 10."
-# another comment
+set multiplier, 2
+set divisor, 4
+
+say "Healing..."
+
 add $health, $heal
 say $health
-say "Healed health." 
+
+say "Taking damage..."
 
 sub $health, $damage
 say $health
-say "Damaged health."
 
-say "Here some multiplying and dividing now."
-set mlt, 4.5
-say "Set mlt to 4.5"
-say "We'll multiply by 16."
+say "Doubling health..."
 
-mlt $mlt, 16
-say $mlt
+mlt $health, $multiplier
+say $health
 
-say "Now lets divide!"
-say "Set div to 2."
-set div, 2
-say "We'll divide by 3."
+say "Dividing health by four..."
 
-div $div, 3
-say $div
+div $health, $divisor
+say $health
 
-say "Now for killing variables!"
 
-kill div
+# ----------------------------------------------------------
+# Floats
+# ----------------------------------------------------------
 
-say "I got rid of div!"
+say ""
+say "[Float Test]"
 
-say $div
+set pi, 3.14159
+say $pi
+
+mlt $pi, 2
+say $pi
+
+div $pi, 2
+say $pi
+
+
+# ----------------------------------------------------------
+# Kill
+# ----------------------------------------------------------
+
+say ""
+say "[Kill Test]"
+
+set temp, "Temporary Variable"
+
+say $temp
+
+kill temp
+
+say "Variable removed."
+
+say $temp
+
+
+# ----------------------------------------------------------
+# If Statements
+# ----------------------------------------------------------
+
+say ""
+say "[If Test]"
+
+set score, 75
+
+if $score >= 50
+
+    say "Passed!"
+
+endIf
+
+if $score < 50
+
+    say "This should NOT appear."
+
+endIf
+
+
+# ----------------------------------------------------------
+# Nested Ifs
+# ----------------------------------------------------------
+
+say ""
+say "[Nested If Test]"
+
+set hasKey, 1
+set doorOpen, 0
+
+if $hasKey = 1
+
+    say "Player has the key."
+
+    if $doorOpen = 0
+
+        say "The door is locked."
+
+    endIf
+
+endIf
+
+say "Nested test complete."
+
+
+# ----------------------------------------------------------
+# Finished
+# ----------------------------------------------------------
+
+say ""
+say "=== End of Test ==="

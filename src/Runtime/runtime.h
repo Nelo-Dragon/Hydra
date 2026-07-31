@@ -16,7 +16,6 @@ private:
     struct IsIf 
     {
 
-        int inIf = 0;
         std::vector<bool> ifBad;
     };
 
@@ -31,6 +30,7 @@ private:
     void Div(const Command& cmd);
 
     IsIf If(const Command& cmd, const IsIf& inIf);
+    IsIf EndIf(const IsIf& inIf);
 
     bool Compare(const std::string& left, const std::string& op, const std::string& right);
 

@@ -248,27 +248,36 @@ Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf) {
 
     IsIf curIf = inIf;
 
-    curIf.inIf++;
-
     VarCheck varA = variables.IsVar(cmd.args[0]);
     VarCheck varB = variables.IsVar(cmd.args[2]);
 
     std::string a;
     std::string b;
 
-    if (variables.Get(varA.name).empty()) {
+    if (varA.var) {
         a = variables.Get(varA.name);
     }
     else {
         a = cmd.args[0];
     }
 
-    if (variables.Get(varB.name).empty()) {
+    if (varB.var) {
         b = variables.Get(varB.name);
     }
     else {
         b = cmd.args[2];
     }
 
-    Compare(a, cmd.args[1], b);
+    curIf.ifBad.push_back(!Compare(a, cmd.args[1], b));
+
+    return curIf;
+}
+
+Runtime::IsIf Runtime::EndIf(const IsIf& inIf) {
+
+    IsIf curIf = inIf;
+
+    curIf.ifBad.pop_back();
+
+    return curIf;
 }

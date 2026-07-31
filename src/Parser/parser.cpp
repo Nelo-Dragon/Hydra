@@ -26,7 +26,7 @@ HydraError error(std::string line, int lineN, std::string token, bool inQ, bool 
         error.line = lineN;
         return error;
     }
-    if (line[line.size() - 1] == ',') {
+    if (!line.empty() && line.back() == ',') {
 
         error.Err = "\nEnded in nothing.";
         error.token = line;
@@ -172,7 +172,11 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
                         inQ = true;
                     }
                 }
-            }
+
+                
+
+                
+            } 
 
             if (!token.empty()) {
 
@@ -187,10 +191,9 @@ std::vector<Command> ParseFile(const std::string& filename, HydraError& outErr) 
                 outErr = err;
                 return commands;
             }
-
-            commands.push_back(cmd);
-            
         }
+
+        commands.push_back(cmd);
     }
 
     file.close();

@@ -13,31 +13,46 @@ void Runtime::RuntimeError(const Command& cmd, const std::string& message) {
         << "Command: " << cmd.name << "\n" << message << '\n';
 }
 
+
+
 bool Runtime::Compare(const std::string& left, const std::string& op, const std::string& right) {
+
+    float a;
+    float b;
+
+    try {
+
+        a = std::stof(left);
+        b = std::stof(right);
+    }
+    catch (const std::invalid_argument) {
+
+        return false;
+    }
     
     if (op == "=") {
 
-        return left == right;
+        return a == b;
     }
     else if (op == "!=") {
 
-        return left != right;
+        return a != b;
     }
     else if (op == "<") {
 
-        return left < right;
+        return a < b;
     }
     else if (op == ">") {
 
-        return left > right;
+        return a > b;
     }
     else if (op == "<=") {
 
-        return left <= right;
+        return a <= b;
     }
     else if (op == ">=") {
 
-        return left >= right;
+        return a >= b;
     }
     else {
 
@@ -52,29 +67,63 @@ void Runtime::Run(const std::vector<Command>& commands)
     std::string argErr = "Argument amount wrong.";
 
     IsIf isIf;
+    
 
     for (const Command& cmd : commands) {
-
         
         int argA = cmd.args.size();
 
         if (cmd.name == "if") {
 
-            if (argA < 2) {
+            if (argA != 3) {
 
                 RuntimeError(cmd, argErr);
+                continue;
             }
 
             isIf = If(cmd, isIf);
+            continue;
         }
-        else if (!isIf.inIf == 0) {
 
-            if (isIf.ifBad[isIf.inIf] == true) {
+        if (cmd.name == "endIf") {
+            
+            if (argA != 0) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            if (isIf.ifBad.empty()) {
+
+                RuntimeError(cmd, "Unexpected endIf.");
+                continue;
+            }
+
+            isIf = EndIf(isIf);
+
+            continue;
+        }
+
+        if (!isIf.ifBad.empty()) {
+
+            bool shouldSkip = false;
+
+            for (bool bad : isIf.ifBad) {
+
+                if (bad) {
+
+                    shouldSkip = true;
+                    break;
+                }
+            }
+
+            if (shouldSkip) {
 
             continue;
             }
         }
-        else if (cmd.name == "say") {
+
+        if (cmd.name == "say") {
 
             if (argA != 1) {
 
@@ -129,6 +178,7 @@ void Runtime::Run(const std::vector<Command>& commands)
             if (argA < 2) {
 
                 RuntimeError(cmd, argErr);
+                continue;
             }
 
             Mlt(cmd);
@@ -138,6 +188,7 @@ void Runtime::Run(const std::vector<Command>& commands)
             if (argA < 2) {
 
                 RuntimeError(cmd, argErr);
+                continue;
             }
 
             Div(cmd);
