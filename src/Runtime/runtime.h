@@ -19,6 +19,14 @@ private:
         std::vector<bool> ifBad;
     };
 
+    struct IsLoop
+    {
+
+        std::vector<bool> isOut;
+        std::vector<int> loopN;
+        std::vector<int> iteration;
+    };
+
     void RuntimeError(const Command& cmd, const std::string& message);
 
     void Say(const Command& cmd);
