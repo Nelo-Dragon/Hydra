@@ -151,9 +151,20 @@ say "Nested test complete."
 # Ask
 # ----------------------------------------------------------
 
+say ""
+say "[Ask Test]"
+
 ask input, "Type something: "
 
 say $input
+
+ask a, "Type a number: "
+ask b, "Type another number: "
+
+add $a, $b
+
+say "those two numbers equal:"
+say $a
 
 # ----------------------------------------------------------
 # Finished
