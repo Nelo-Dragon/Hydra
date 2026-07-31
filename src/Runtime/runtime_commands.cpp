@@ -254,7 +254,7 @@ void Runtime::Kll(const Command& cmd) {
     }
 }
 
-Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf) {
+Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf, const size_t& commandIndex) {
 
     IsIf curIf = inIf;
 
@@ -284,7 +284,7 @@ Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf) {
 
     curIf.ifBad.push_back(!Compare(a, cmd.args[1], b));
     curIf.branchTaken.push_back(Compare(a, cmd.args[1], b));
-    curIf.lineN.push_back(cmd.line);
+    curIf.lineN.push_back(commandIndex);
 
     return curIf;
 }
@@ -381,7 +381,7 @@ Runtime::IsIf Runtime::EndIf(const Command& cmd, const IsIf& inIf) {
     return curIf;
 }
 
-Runtime::IsLoop Runtime::Loop(const Command& cmd, const IsLoop& isLoop) {
+Runtime::IsLoop Runtime::Loop(const Command& cmd, const IsLoop& isLoop,  const size_t& commandIndex) {
 
     IsLoop curLoop = isLoop;
 
@@ -395,7 +395,7 @@ Runtime::IsLoop Runtime::Loop(const Command& cmd, const IsLoop& isLoop) {
     }
     else {
 
-        iterations = std::stoi(variables.Get(cmd.args[0]));
+        iterations = std::stoi(variables.Get(var.name));
     }
 
     if (iterations <= 0) {
@@ -404,11 +404,9 @@ Runtime::IsLoop Runtime::Loop(const Command& cmd, const IsLoop& isLoop) {
         return curLoop;
     }
 
-    curLoop.lineN.push_back(cmd.line);
+    curLoop.lineN.push_back(commandIndex);
     
     curLoop.iteration.push_back(iterations);
-
-    curLoop.isOut.push_back(false);
 
     return curLoop;
 }
@@ -417,20 +415,19 @@ Runtime::IsLoop Runtime::EndLoop(const Command& cmd, const IsLoop& isLoop) {
 
     IsLoop curLoop = isLoop;
 
-    int iterations;
+    if (curLoop.iteration.empty()) {
 
-    iterations = curLoop.iteration.back();
-    
-
-    if (iterations <= 0) {
-
-        curLoop.isOut.pop_back();
-        curLoop.iteration.pop_back();
-        curLoop.lineN.pop_back();
+        RuntimeError(cmd, "Unexpected endloop.");
         return curLoop;
     }
-
+    
     curLoop.iteration.back() -= 1;
+
+    if (curLoop.iteration.back() <= 0) {
+
+        curLoop.iteration.pop_back();
+        curLoop.lineN.pop_back();
+    }
 
     return curLoop;
 }

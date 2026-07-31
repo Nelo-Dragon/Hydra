@@ -1,19 +1,53 @@
 # ==========================================================
-# Hydra Test Script
+
+# Hydra Runtime Test
+
 # Tests:
-#   - say
-#   - set
-#   - add / sub / mult / div
-#   - variables
-#   - kill
-#   - nested if statements
-#   - ask
+
+# - say
+
+# - set
+
+# - variables
+
+# - add / sub / mult / div
+
+# - integers
+
+# - floats
+
+# - strings
+
+# - kill
+
+# - if
+
+# - elif
+
+# - elseIf
+
+# - else
+
+# - nested if statements
+
+# - loop
+
+# - loop using variables
+
+# - math inside loops
+
+# - nested loops
+
+# - ask
+
 # ==========================================================
 
 say "=== Hydra Runtime Test ==="
 
 # ----------------------------------------------------------
+
 # Variables
+
 # ----------------------------------------------------------
 
 say ""
@@ -32,9 +66,10 @@ say $health
 say "Gold:"
 say $gold
 
-
 # ----------------------------------------------------------
+
 # Math
+
 # ----------------------------------------------------------
 
 say ""
@@ -65,26 +100,32 @@ say "Dividing health by four..."
 div $health, $divisor
 say $health
 
-
 # ----------------------------------------------------------
+
 # Floats
+
 # ----------------------------------------------------------
 
 say ""
 say "[Float Test]"
 
 set pi, 3.14159
+
+say "Pi:"
 say $pi
 
+say "Pi times two:"
 mult $pi, 2
 say $pi
 
+say "Pi divided by two:"
 div $pi, 2
 say $pi
 
-
 # ----------------------------------------------------------
+
 # Kill
+
 # ----------------------------------------------------------
 
 say ""
@@ -92,78 +133,424 @@ say "[Kill Test]"
 
 set temp, "Temporary Variable"
 
+say "Temporary variable:"
 say $temp
 
 kill temp
 
 say "Variable removed."
 
+say "Trying to access removed variable:"
 say $temp
 
-
-# ----------------------------------------------------------
-# If Statements
 # ----------------------------------------------------------
 
+# If
+
+# ----------------------------------------------------------
+
+say ""
 say "[If Test]"
 
 set a, 10
 
 if $a = 10
 
-    say "Passed!"
-elif $a < 9
 
-    say "FAILED Elif!"
-elseIf $a > 9
+say "IF branch passed!"
 
-    say "PASSED Elif!"
-else
-
-    say "FAILED!"
 
 end
 
-say ""
+# ----------------------------------------------------------
 
+# Elif
+
+# ----------------------------------------------------------
+
+say ""
+say "[Elif Test]"
+
+set a, 20
+
+if $a = 10
+
+
+say "FAILED: IF branch ran."
+
+
+elif $a = 20
+
+
+say "ELIF branch passed!"
+
+
+else
+
+
+say "FAILED: ELSE branch ran."
+
+
+end
+
+# ----------------------------------------------------------
+
+# ElseIf
+
+# ----------------------------------------------------------
+
+say ""
+say "[elseIf Test]"
+
+set a, 30
+
+if $a = 10
+
+
+say "FAILED: IF branch ran."
+
+
+elseIf $a = 20
+
+
+say "FAILED: first elseIf ran."
+
+
+elseIf $a = 30
+
+
+say "elseIf branch passed!"
+
+
+else
+
+
+say "FAILED: ELSE branch ran."
+
+
+end
+
+# ----------------------------------------------------------
+
+# Else
+
+# ----------------------------------------------------------
+
+say ""
 say "[Else Test]"
 
 set a, 5
 
 if $a > 10
-    say "FAILED!"
+
+
+say "FAILED: IF branch ran."
+
+
 else
-    say "Else works!"
+
+
+say "ELSE branch passed!"
+
+
 end
 
 # ----------------------------------------------------------
-# Nested Ifs
+
+# If Chain First-Match Test
+
 # ----------------------------------------------------------
 
 say ""
+say "[If Chain Test]"
 
+set a, 10
+
+if $a = 10
+
+
+say "First branch ran."
+
+
+elif $a = 10
+
+
+say "FAILED: second branch also ran."
+
+
+elseIf $a = 10
+
+
+say "FAILED: third branch also ran."
+
+
+else
+
+
+say "FAILED: else branch also ran."
+
+
+end
+
+# ----------------------------------------------------------
+
+# Nested If
+
+# ----------------------------------------------------------
+
+say ""
 say "[Nested If Test]"
 
 set hasKey, 1
 set doorUnlocked, 0
 
 if $hasKey = 1
-    say "Player has the key."
 
-    if $doorUnlocked = 1
-        say "The door is open."
-    else
-        say "The door is locked."
-    end
+
+say "Player has the key."
+
+if $doorUnlocked = 1
+
+    say "The door is open."
 
 else
-    say "Player has no key."
+
+    say "The door is locked."
+
+end
+
+
+else
+
+
+say "Player has no key."
+
+
 end
 
 say "Nested test complete."
 
 # ----------------------------------------------------------
+
+# Basic Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Basic Loop Test]"
+
+set counter, 0
+
+loop 5
+
+say "Loop iteration:"
+add $counter, 1
+say $counter
+
+end
+
+# ----------------------------------------------------------
+
+# Loop Using Variable
+
+# ----------------------------------------------------------
+
+say ""
+say "[Variable Loop Test]"
+
+set repetitions, 3
+set counter, 0
+
+loop $repetitions
+
+
+add $counter, 1
+say $counter
+
+
+end
+
+# ----------------------------------------------------------
+
+# Math Inside Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop Math Test]"
+
+set number, 1
+
+loop 5
+
+
+mult $number, 2
+say $number
+
+
+end
+
+# ----------------------------------------------------------
+
+# Multiple Math Operations In Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop Calculation Test]"
+
+set value, 10
+
+loop 4
+
+
+add $value, 5
+mult $value, 2
+sub $value, 10
+say $value
+
+
+end
+
+# ----------------------------------------------------------
+
+# Nested Loops
+
+# ----------------------------------------------------------
+
+say ""
+say "[Nested Loop Test]"
+
+set outer, 0
+set inner, 0
+
+loop 3
+
+
+add $outer, 1
+
+say "Outer loop:"
+say $outer
+
+set inner, 0
+
+loop 2
+
+    add $inner, 1
+
+    say "Inner loop:"
+    say $inner
+
+end
+
+
+end
+
+# ----------------------------------------------------------
+
+# Loop + If
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop + If Test]"
+
+set number, 0
+
+loop 5
+
+
+add $number, 1
+
+if $number = 3
+
+    say "Reached three!"
+
+else
+
+    say "Not three."
+
+end
+
+
+end
+
+# ----------------------------------------------------------
+
+# Nested If + Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Nested If + Loop Test]"
+
+set count, 0
+
+loop 3
+
+
+add $count, 1
+
+if $count > 1
+
+    say "Count is greater than one."
+
+    if $count = 3
+
+        say "Count reached three!"
+
+    end
+
+else
+
+    say "Count is one."
+
+end
+
+
+end
+
+# ----------------------------------------------------------
+
+# Loop + If Chain
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop + If Chain Test]"
+
+set number, 0
+
+loop 4
+
+
+add $number, 1
+
+if $number = 1
+
+    say "Number is one."
+
+elif $number = 2
+
+    say "Number is two."
+
+elseIf $number = 3
+
+    say "Number is three."
+
+else
+
+    say "Number is four."
+
+end
+
+
+end
+
+# ----------------------------------------------------------
+
 # Ask
+
 # ----------------------------------------------------------
 
 say ""
@@ -171,6 +558,7 @@ say "[Ask Test]"
 
 ask input, "Type something: "
 
+say "You typed:"
 say $input
 
 ask a, "Type a number: "
@@ -178,12 +566,58 @@ ask b, "Type another number: "
 
 add $a, $b
 
-say "those two numbers equal:"
+say "Those two numbers equal:"
 say $a
 
 # ----------------------------------------------------------
-# Finished
+
+# Ask + If
+
 # ----------------------------------------------------------
 
 say ""
-say "=== End of Test ==="
+say "[Ask + If Test]"
+
+ask age, "Enter a number: "
+
+if $age >= 18
+
+
+say "18 or older."
+
+
+else
+
+
+say "Under 18."
+
+
+end
+
+# ----------------------------------------------------------
+
+# Cleanup
+
+# ----------------------------------------------------------
+
+say ""
+say "[Cleanup Test]"
+
+set cleanupA, 10
+set cleanupB, 20
+set cleanupC, "Temporary"
+
+say "Created temporary variables."
+
+kill cleanupA, cleanupB, cleanupC
+
+say "Temporary variables killed."
+
+# ----------------------------------------------------------
+
+# Finished
+
+# ----------------------------------------------------------
+
+say ""
+say "=== End of Hydra Runtime Test ==="

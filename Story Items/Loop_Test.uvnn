@@ -1,0 +1,13 @@
+set i, 1
+
+set iters, 3
+
+loop $iters
+
+    say "Loop!"
+    say $i
+    add $i, 1
+
+endloop
+
+say "Done!"

@@ -24,7 +24,6 @@ private:
     struct IsLoop
     {
 
-        std::vector<bool> isOut;
         std::vector<int> lineN;
         std::vector<int> iteration;
     };
@@ -40,10 +39,10 @@ private:
     void Div(const Command& cmd);
     void Ask(const Command& cmd);
 
-    IsLoop Loop(const Command& cmd, const IsLoop& isLoop);
+    IsLoop Loop(const Command& cmd, const IsLoop& isLoop, const size_t& commandIndex);
     IsLoop EndLoop(const Command& cmd, const IsLoop& isLoop);
 
-    IsIf If(const Command& cmd, const IsIf& inIf);
+    IsIf If(const Command& cmd, const IsIf& inIf, const size_t& commandIndex);
     IsIf ElseIf(const Command& cmd, const IsIf& inIf);
     IsIf Else(const Command& cmd, const IsIf& inIf);
     IsIf EndIf(const Command& cmd, const IsIf& inIf);

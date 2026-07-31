@@ -83,7 +83,7 @@ void Runtime::Run(const std::vector<Command>& commands)
                 continue;
             }
 
-            isIf = If(cmd, isIf);
+            isIf = If(cmd, isIf, i);
             continue;
         }
 
@@ -119,11 +119,15 @@ void Runtime::Run(const std::vector<Command>& commands)
                 continue;
             }
 
-            isLoop = Loop(cmd, isLoop);
+            if (isLoop.lineN.empty() || isLoop.lineN.back() != i) {
+
+                isLoop = Loop(cmd, isLoop, i);
+            }
+
             continue;
         }
 
-        if (cmd.name == "end") {
+        if (cmd.name == "endif") {
             
             if (argA != 0) {
 
@@ -131,41 +135,23 @@ void Runtime::Run(const std::vector<Command>& commands)
                 continue;
             }
 
-            bool hasIf = !isIf.lineN.empty();
-            bool hasLoop = !isLoop.lineN.empty();
+            isIf = EndIf(cmd, isIf);
+            continue;
+        }
 
-            if (!hasIf && !hasLoop) {
+        if (cmd.name == "endloop") {
 
-                RuntimeError(cmd, "Unexpected end.");
+            if (argA != 0) {
+
+                RuntimeError(cmd, argErr);
                 continue;
             }
 
-            if (hasIf && hasLoop) {
+            if (!isLoop.lineN.empty()) {
 
-                if (isIf.lineN.back() > isLoop.lineN.back()) {
-
-                    isIf = EndIf(cmd, isIf);
-                }
-                else {
-
-                    isLoop = EndLoop(cmd, isLoop);
-                    i = isLoop.lineN.back() - 1;
-                }
+                i = isLoop.lineN.back();
             }
-            else if (hasIf) {
-
-                isIf = EndIf(cmd, isIf);
-            }
-            else {
-
-                isLoop = EndLoop(cmd, isLoop);
-
-                if (!isLoop.lineN.empty()) {
-
-                    i = isLoop.lineN.back() - 1;
-                }
-            }
-
+            
             continue;
         }
 
