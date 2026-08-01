@@ -1,0 +1,623 @@
+# ==========================================================
+
+# Hydra Runtime Test
+
+# Tests:
+
+# - say
+
+# - set
+
+# - variables
+
+# - add / sub / mult / div
+
+# - integers
+
+# - floats
+
+# - strings
+
+# - kill
+
+# - if
+
+# - elif
+
+# - elseIf
+
+# - else
+
+# - nested if statements
+
+# - loop
+
+# - loop using variables
+
+# - math inside loops
+
+# - nested loops
+
+# - ask
+
+# ==========================================================
+
+say "=== Hydra Runtime Test ==="
+
+# ----------------------------------------------------------
+
+# Variables
+
+# ----------------------------------------------------------
+
+say ""
+say "[Variable Test]"
+
+set player, "Aretē"
+set health, 100
+set gold, 50
+
+say "Player:"
+say $player
+
+say "Health:"
+say $health
+
+say "Gold:"
+say $gold
+
+# ----------------------------------------------------------
+
+# Math
+
+# ----------------------------------------------------------
+
+say ""
+say "[Math Test]"
+
+set heal, 25
+set damage, 10
+set multiplier, 2
+set divisor, 4
+
+say "Healing..."
+
+add $health, $heal
+say $health
+
+say "Taking damage..."
+
+sub $health, $damage
+say $health
+
+say "Doubling health..."
+
+mult $health, $multiplier
+say $health
+
+say "Dividing health by four..."
+
+div $health, $divisor
+say $health
+
+# ----------------------------------------------------------
+
+# Floats
+
+# ----------------------------------------------------------
+
+say ""
+say "[Float Test]"
+
+set pi, 3.14159
+
+say "Pi:"
+say $pi
+
+say "Pi times two:"
+mult $pi, 2
+say $pi
+
+say "Pi divided by two:"
+div $pi, 2
+say $pi
+
+# ----------------------------------------------------------
+
+# Kill
+
+# ----------------------------------------------------------
+
+say ""
+say "[Kill Test]"
+
+set temp, "Temporary Variable"
+
+say "Temporary variable:"
+say $temp
+
+kill temp
+
+say "Variable removed."
+
+say "Trying to access removed variable:"
+say $temp
+
+# ----------------------------------------------------------
+
+# If
+
+# ----------------------------------------------------------
+
+say ""
+say "[If Test]"
+
+set a, 10
+
+if $a = 10
+
+
+say "IF branch passed!"
+
+
+endif
+
+# ----------------------------------------------------------
+
+# Elif
+
+# ----------------------------------------------------------
+
+say ""
+say "[Elif Test]"
+
+set a, 20
+
+if $a = 10
+
+
+say "FAILED: IF branch ran."
+
+
+elif $a = 20
+
+
+say "ELIF branch passed!"
+
+
+else
+
+
+say "FAILED: ELSE branch ran."
+
+
+endif
+
+# ----------------------------------------------------------
+
+# ElseIf
+
+# ----------------------------------------------------------
+
+say ""
+say "[elseIf Test]"
+
+set a, 30
+
+if $a = 10
+
+
+say "FAILED: IF branch ran."
+
+
+elseIf $a = 20
+
+
+say "FAILED: first elseIf ran."
+
+
+elseIf $a = 30
+
+
+say "elseIf branch passed!"
+
+
+else
+
+
+say "FAILED: ELSE branch ran."
+
+
+endif
+
+# ----------------------------------------------------------
+
+# Else
+
+# ----------------------------------------------------------
+
+say ""
+say "[Else Test]"
+
+set a, 5
+
+if $a > 10
+
+
+say "FAILED: IF branch ran."
+
+
+else
+
+
+say "ELSE branch passed!"
+
+
+endif
+
+# ----------------------------------------------------------
+
+# If Chain First-Match Test
+
+# ----------------------------------------------------------
+
+say ""
+say "[If Chain Test]"
+
+set a, 10
+
+if $a = 10
+
+
+say "First branch ran."
+
+
+elif $a = 10
+
+
+say "FAILED: second branch also ran."
+
+
+elseIf $a = 10
+
+
+say "FAILED: third branch also ran."
+
+
+else
+
+
+say "FAILED: else branch also ran."
+
+
+endif
+
+# ----------------------------------------------------------
+
+# Nested If
+
+# ----------------------------------------------------------
+
+say ""
+say "[Nested If Test]"
+
+set hasKey, 1
+set doorUnlocked, 0
+
+if $hasKey = 1
+
+
+say "Player has the key."
+
+if $doorUnlocked = 1
+
+    say "The door is open."
+
+else
+
+    say "The door is locked."
+
+endif
+
+
+else
+
+
+say "Player has no key."
+
+
+endif
+
+say "Nested test complete."
+
+# ----------------------------------------------------------
+
+# Basic Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Basic Loop Test]"
+
+set counter, 0
+
+loop 5
+
+say "Loop iteration:"
+add $counter, 1
+say $counter
+
+endloop
+
+# ----------------------------------------------------------
+
+# Loop Using Variable
+
+# ----------------------------------------------------------
+
+say ""
+say "[Variable Loop Test]"
+
+set repetitions, 3
+set counter, 0
+
+loop $repetitions
+
+
+add $counter, 1
+say $counter
+
+
+endloop
+
+# ----------------------------------------------------------
+
+# Math Inside Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop Math Test]"
+
+set number, 1
+
+loop 5
+
+
+mult $number, 2
+say $number
+
+
+endloop
+
+# ----------------------------------------------------------
+
+# Multiple Math Operations In Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop Calculation Test]"
+
+set value, 10
+
+loop 4
+
+
+add $value, 5
+mult $value, 2
+sub $value, 10
+say $value
+
+
+endloop
+
+# ----------------------------------------------------------
+
+# Nested Loops
+
+# ----------------------------------------------------------
+
+say ""
+say "[Nested Loop Test]"
+
+set outer, 0
+set inner, 0
+
+loop 3
+
+
+add $outer, 1
+
+say "Outer loop:"
+say $outer
+
+set inner, 0
+
+loop 2
+
+    add $inner, 1
+
+    say "Inner loop:"
+    say $inner
+
+endloop
+
+
+endloop
+
+# ----------------------------------------------------------
+
+# Loop + If
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop + If Test]"
+
+set number, 0
+
+loop 5
+
+
+add $number, 1
+
+if $number = 3
+
+    say "Reached three!"
+
+else
+
+    say "Not three."
+
+endif
+
+
+endloop
+
+# ----------------------------------------------------------
+
+# Nested If + Loop
+
+# ----------------------------------------------------------
+
+say ""
+say "[Nested If + Loop Test]"
+
+set count, 0
+
+loop 3
+
+
+add $count, 1
+
+if $count > 1
+
+    say "Count is greater than one."
+
+    if $count = 3
+
+        say "Count reached three!"
+
+    endif
+
+else
+
+    say "Count is one."
+
+endif
+
+
+endloop
+
+# ----------------------------------------------------------
+
+# Loop + If Chain
+
+# ----------------------------------------------------------
+
+say ""
+say "[Loop + If Chain Test]"
+
+set number, 0
+
+loop 4
+
+
+add $number, 1
+
+if $number = 1
+
+    say "Number is one."
+
+elif $number = 2
+
+    say "Number is two."
+
+elseIf $number = 3
+
+    say "Number is three."
+
+else
+
+    say "Number is four."
+
+endif
+
+
+endloop
+
+# ----------------------------------------------------------
+
+# Ask
+
+# ----------------------------------------------------------
+
+say ""
+say "[Ask Test]"
+
+ask input, "Type something: "
+
+say "You typed:"
+say $input
+
+ask a, "Type a number: "
+ask b, "Type another number: "
+
+add $a, $b
+
+say "Those two numbers equal:"
+say $a
+
+# ----------------------------------------------------------
+
+# Ask + If
+
+# ----------------------------------------------------------
+
+say ""
+say "[Ask + If Test]"
+
+ask age, "Enter a number: "
+
+if $age >= 18
+
+
+say "18 or older."
+
+
+else
+
+
+say "Under 18."
+
+
+endif
+
+# ----------------------------------------------------------
+
+# Cleanup
+
+# ----------------------------------------------------------
+
+say ""
+say "[Cleanup Test]"
+
+set cleanupA, 10
+set cleanupB, 20
+set cleanupC, "Temporary"
+
+say "Created temporary variables."
+
+kill cleanupA, cleanupB, cleanupC
+
+say "Temporary variables killed."
+
+# ----------------------------------------------------------
+
+# Finished
+
+# ----------------------------------------------------------
+
+say ""
+say "=== End of Hydra Runtime Test ==="

@@ -14,6 +14,44 @@ std::string Runtime::FtoS(float input) {
     return stream.str();
 }
 
+float Runtime::ParseVarNum(const Command& cmd, const VarCheck& var) {
+
+    try {
+
+        return std::stof(variables.Get(var.name));
+    }
+    catch (const std::invalid_argument&) {
+
+        RuntimeError(cmd, "Expects a number.");
+        return 0;
+    }
+    catch (const std::out_of_range&) {
+
+        RuntimeError(cmd, "Number is too large.");
+        return 0;
+    }
+}
+
+std::vector<float> Runtime::ParseNums(const Command& cmd) {
+
+    std::vector<float> curNums;
+
+    for (size_t i = 1; i < cmd.args.size(); i++) {
+
+        VarCheck var = variables.IsVar(cmd.args[i]);
+
+        if (var.var) {
+            curNums.push_back(ParseVarNum(cmd, var));
+        }
+        else {
+            curNums.push_back(std::stof(cmd.args[i]));
+        }
+        
+    }
+
+    return curNums;
+}
+
 void Runtime::Say(const Command& cmd) {
 
     for (size_t i = 0; cmd.args.size() > i; i++) {
@@ -38,36 +76,8 @@ void Runtime::Set(const Command& cmd) {
 
 void Runtime::Add(const Command& cmd) {
 
-    std::vector<float> nums;
+    std::vector<float> nums = ParseNums(cmd);
     float addNums = 0;
-
-    for (size_t i = 1; i < cmd.args.size(); i++) {
-
-        VarCheck var = variables.IsVar(cmd.args[i]);
-
-        std::string varAmt = variables.Get(var.name);
-
-        try {
-
-            if (var.var) {
-                nums.push_back(std::stof(varAmt));
-            }
-            else {
-                nums.push_back(std::stof(cmd.args[i]));
-            }
-        }
-        catch (const std::invalid_argument&) {
-
-            RuntimeError(cmd, "Expexts a number.");
-            break;
-        }
-        catch (const std::out_of_range&) {
-
-            RuntimeError(cmd, "Number is too large.");
-                break;
-        }
-        
-    }
 
     for (size_t i = 0; i < nums.size(); i++) {
 
@@ -89,36 +99,8 @@ void Runtime::Add(const Command& cmd) {
 
 void Runtime::Sub(const Command& cmd) {
 
-    std::vector<float> nums;
+    std::vector<float> nums = ParseNums(cmd);
     float subNums = 0;
-
-    for (size_t i = 1; i < cmd.args.size(); i++) {
-
-        VarCheck var = variables.IsVar(cmd.args[i]);
-
-        std::string varAmt = variables.Get(var.name);
-
-        try {
-
-            if (var.var) {
-                nums.push_back(std::stof(varAmt));
-            }
-            else {
-                nums.push_back(std::stof(cmd.args[i]));
-            }
-        }
-        catch (const std::invalid_argument&) {
-
-            RuntimeError(cmd, "Expexts a number.");
-            break;
-        }
-        catch (const std::out_of_range&) {
-
-            RuntimeError(cmd, "Number is too large.");
-                break;
-        }
-        
-    }
 
     for (size_t i = 0; i < nums.size(); i++) {
 
@@ -140,36 +122,8 @@ void Runtime::Sub(const Command& cmd) {
 
 void Runtime::Mlt(const Command& cmd) {
 
-    std::vector<float> nums;
+    std::vector<float> nums = ParseNums(cmd);
     float mltNums = 1;
-
-    for (size_t i = 1; i < cmd.args.size(); i++) {
-
-        VarCheck var = variables.IsVar(cmd.args[i]);
-
-        std::string varAmt = variables.Get(var.name);
-
-        try {
-
-            if (var.var) {
-                nums.push_back(std::stof(varAmt));
-            }
-            else {
-                nums.push_back(std::stof(cmd.args[i]));
-            }
-        }
-        catch (const std::invalid_argument&) {
-
-            RuntimeError(cmd, "Expexts a number.");
-            break;
-        }
-        catch (const std::out_of_range&) {
-
-            RuntimeError(cmd, "Number is too large.");
-                break;
-        }
-        
-    }
 
     for (size_t i = 0; i < nums.size(); i++) {
 
@@ -180,7 +134,7 @@ void Runtime::Mlt(const Command& cmd) {
 
     if (!var.var) {
 
-        RuntimeError(cmd, "first argument must be a variable.");
+        RuntimeError(cmd, "First argument must be a variable.");
         return;
     }
 
@@ -191,51 +145,31 @@ void Runtime::Mlt(const Command& cmd) {
 
 void Runtime::Div(const Command& cmd) {
 
-    std::vector<float> nums;
+    std::vector<float> nums = ParseNums(cmd);
+    float divNums;
 
-    VarCheck target = variables.IsVar(cmd.args[0]);
+    VarCheck var = variables.IsVar(cmd.args[0]);
 
-    if (!target.var) {
+    if (!var.var) {
 
-        RuntimeError(cmd, "first argument must be a variable.");
+        RuntimeError(cmd, "First argument must be a variable.");
         return;
     }
 
-    float varAmt = std::stof(variables.Get(target.name));
+    divNums = ParseVarNum(cmd, var);
 
-    for (size_t i = 1; i < cmd.args.size(); i++) {
+    for (size_t i = 0; i < nums.size(); i++) {
 
-        VarCheck var = variables.IsVar(cmd.args[i]);
+        if (nums[1] == 0) {
 
-        float argDiv;
-
-        if (var.var) {
-
-            argDiv = std::stof(variables.Get(var.name));
-        }
-        else {
-    
-            argDiv = std::stof(cmd.args[i]);
+            RuntimeError(cmd, "Can't devide by zero.");
+            return;
         }
 
-        try {
-
-            varAmt = varAmt / argDiv;
-        }
-        catch (const std::invalid_argument&) {
-
-            RuntimeError(cmd, "Expexts a number.");
-            break;
-        }
-        catch (const std::out_of_range&) {
-
-            RuntimeError(cmd, "Number is too large.");
-                break;
-        }
-        
+        divNums = divNums / nums[i];
     }
 
-    variables.Set(target.name, FtoS(varAmt));
+    variables.Set(var.name, FtoS(divNums));
 }
 
 void Runtime::Ask(const Command& cmd) {
