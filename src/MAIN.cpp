@@ -2,6 +2,7 @@
 #include "src/Runtime/runtime.h"
 
 #include <iostream>
+#include <chrono>
 
 
 int main(int argc, char* argv[]) {
@@ -24,5 +25,16 @@ int main(int argc, char* argv[]) {
 
     Runtime runtime;
 
+    auto start = std::chrono::steady_clock::now();
+
     runtime.Run(commands);
+
+    auto end = std::chrono::steady_clock::now();
+
+    std::chrono::duration<double, std::milli> elapsed = end - start;
+
+    if (argc >= 3 && std::string(argv[2]) == "--time") {
+
+        std::cout << "\nRuntime:" << elapsed.count() << " ms\n";
+    }
 }
