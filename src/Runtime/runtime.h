@@ -52,7 +52,7 @@ private:
     std::string FtoS(float input);
 
     std::vector<float> ParseNums(const Command& cmd);
-    float ParseVarNum(const Command& cmd, const VarCheck& var);
+    float ParseNum(const Command& cmd, const std::string& input);
 
     VarSys variables;
 

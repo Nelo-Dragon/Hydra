@@ -1,9 +1,9 @@
-set a, 30
 
-set b, 4
+ask inputA, "Input: "
+ask inputB, "Input: "
 
-say $a
+add $inputA, $inputB
 
-div $a, $b
+kill inputB
 
-say $a
+say $inputA

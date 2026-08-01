@@ -14,11 +14,20 @@ std::string Runtime::FtoS(float input) {
     return stream.str();
 }
 
-float Runtime::ParseVarNum(const Command& cmd, const VarCheck& var) {
+float Runtime::ParseNum(const Command& cmd, const std::string& input) {
+
+    VarCheck var = variables.IsVar(input);
+
+    std::string value = input;
+
+    if (var.var) {
+
+        value = variables.Get(var.name);
+    }
 
     try {
 
-        return std::stof(variables.Get(var.name));
+        return std::stof(value);
     }
     catch (const std::invalid_argument&) {
 
@@ -38,15 +47,7 @@ std::vector<float> Runtime::ParseNums(const Command& cmd) {
 
     for (size_t i = 1; i < cmd.args.size(); i++) {
 
-        VarCheck var = variables.IsVar(cmd.args[i]);
-
-        if (var.var) {
-            curNums.push_back(ParseVarNum(cmd, var));
-        }
-        else {
-            curNums.push_back(std::stof(cmd.args[i]));
-        }
-        
+        curNums.push_back(ParseNum(cmd, cmd.args[i]));
     }
 
     return curNums;
@@ -54,8 +55,9 @@ std::vector<float> Runtime::ParseNums(const Command& cmd) {
 
 void Runtime::Say(const Command& cmd) {
 
-    for (size_t i = 0; cmd.args.size() > i; i++) {
-        VarCheck var = variables.IsVar(cmd.args[i]);
+    for (const std::string& arg : cmd.args) {
+
+        VarCheck var = variables.IsVar(arg);
 
         if (var.var) {
 
@@ -63,7 +65,7 @@ void Runtime::Say(const Command& cmd) {
         }
         else {
 
-            std::cout << cmd.args[i];
+            std::cout << arg;
         }
     }
     std::cout << "\n";
@@ -88,13 +90,11 @@ void Runtime::Add(const Command& cmd) {
 
     if (!var.var) {
 
-        RuntimeError(cmd, "first argument must be a variable.");
+        RuntimeError(cmd, "First argument must be a variable.");
         return;
     }
 
-    std::string varAmt = variables.Get(var.name);
-
-    variables.Set(var.name, FtoS(addNums + std::stof(varAmt)));
+    variables.Set(cmd.args[0], FtoS(addNums + ParseNum(cmd, cmd.args[0])));
 }
 
 void Runtime::Sub(const Command& cmd) {
@@ -111,13 +111,11 @@ void Runtime::Sub(const Command& cmd) {
 
     if (!var.var) {
 
-        RuntimeError(cmd, "first argument must be a variable.");
+        RuntimeError(cmd, "First argument must be a variable.");
         return;
     }
 
-    std::string varAmt = variables.Get(var.name);
-
-    variables.Set(var.name, FtoS(subNums + std::stof(varAmt)));
+    variables.Set(cmd.args[0], FtoS(subNums + ParseNum(cmd, cmd.args[0])));
 }
 
 void Runtime::Mlt(const Command& cmd) {
@@ -138,9 +136,7 @@ void Runtime::Mlt(const Command& cmd) {
         return;
     }
 
-    std::string varAmt = variables.Get(var.name);
-
-    variables.Set(var.name, FtoS(mltNums * std::stof(varAmt)));
+    variables.Set(cmd.args[0], FtoS(mltNums * ParseNum(cmd, cmd.args[0])));
 }
 
 void Runtime::Div(const Command& cmd) {
@@ -156,11 +152,11 @@ void Runtime::Div(const Command& cmd) {
         return;
     }
 
-    divNums = ParseVarNum(cmd, var);
+    divNums = ParseNum(cmd, cmd.args[0]);
 
     for (size_t i = 0; i < nums.size(); i++) {
 
-        if (nums[1] == 0) {
+        if (nums[i] == 0) {
 
             RuntimeError(cmd, "Can't devide by zero.");
             return;
@@ -169,7 +165,7 @@ void Runtime::Div(const Command& cmd) {
         divNums = divNums / nums[i];
     }
 
-    variables.Set(var.name, FtoS(divNums));
+    variables.Set(cmd.args[0], FtoS(divNums));
 }
 
 void Runtime::Ask(const Command& cmd) {
