@@ -16,16 +16,19 @@ std::string Runtime::FtoS(float input) {
 
 void Runtime::Say(const Command& cmd) {
 
-    VarCheck var = variables.IsVar(cmd.args[0]);
+    for (size_t i = 0; cmd.args.size() > i; i++) {
+        VarCheck var = variables.IsVar(cmd.args[i]);
 
-    if (var.var) {
+        if (var.var) {
 
-        std::cout << variables.Get(var.name) << "\n";
+            std::cout << variables.Get(var.name);
+        }
+        else {
+
+            std::cout << cmd.args[i];
+        }
     }
-    else {
-
-        std::cout << cmd.args[0] << "\n";
-    }
+    std::cout << "\n";
 }
 
 void Runtime::Set(const Command& cmd) {

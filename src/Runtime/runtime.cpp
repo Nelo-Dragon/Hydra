@@ -185,7 +185,7 @@ void Runtime::Run(const std::vector<Command>& commands)
 
         if (cmd.name == "say") {
 
-            if (argA != 1) {
+            if (argA < 1) {
 
                 RuntimeError(cmd, argErr);
                 continue;
