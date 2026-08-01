@@ -153,9 +153,10 @@ void Runtime::Run(const std::vector<Command>& commands)
                 continue;
             }
 
+            size_t stackSizeBefore = isLoop.lineN.size();
             isLoop = EndLoop(cmd, isLoop);
 
-            if (!isLoop.lineN.empty()) {
+            if (isLoop.lineN.size() == stackSizeBefore) {
 
                 i = isLoop.lineN.back();
             }
