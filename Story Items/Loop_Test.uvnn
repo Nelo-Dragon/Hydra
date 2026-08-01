@@ -1,21 +1,12 @@
 say "START"
 
-set outer, 0
-set inner, 0
+set something, 0
 
-loop 3
+loop 1000
 
-    add $outer, 1
-    say "Outer:"
-    say $outer
+    loop 1000
 
-    set inner, 0
-
-    loop 2
-
-        add $inner, 1
-        say "Inner:"
-        say $inner
+        add $something, 1
 
     endloop
 
