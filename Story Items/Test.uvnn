@@ -1,9 +1,15 @@
+# your commands are:
+# say
+# ask
+# set
+# kill
+# add, sub, mult, div
+# if, elseif, else
+# loop
 
-ask inputA, "Input: "
-ask inputB, "Input: "
+# this is how syntax work
+# add $x, $y, 12
+# adds y and 12 to x
 
-add $inputA, $inputB
+# =================================================================
 
-kill inputB
-
-say $inputA

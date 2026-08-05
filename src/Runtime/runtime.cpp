@@ -217,11 +217,21 @@ void Runtime::Run(const std::vector<Command>& commands)
 
             if (argA != 2) {
 
-                RuntimeError(cmd,argErr);
+                RuntimeError(cmd, argErr);
                 continue;
             }
 
             Ask(cmd);
+        }
+        else if (cmd.name == "rand") {
+
+            if (argA != 3) {
+              
+              RuntimeError(cmd, argErr);
+              continue;
+          }
+          
+          Rnd(cmd);
         }
         else if (cmd.name == "add") {
 

@@ -6,12 +6,47 @@
 #include <string>
 #include <stdexcept>
 #include <sstream>
+#include <random>
+#include <cmath>
 
 std::string Runtime::FtoS(float input) {
 
     std::ostringstream stream;
     stream << input;
     return stream.str();
+}
+
+std::vector<std::string> Runtime::Comparitors(const Command& cmd) {
+  
+    std::vector<std::string> output;
+    VarCheck varA = variables.IsVar(cmd.args[0]);
+    VarCheck varB = variables.IsVar(cmd.args[2]);
+
+    std::string a;
+    std::string b;
+
+    if (varA.var) {
+
+        a = variables.Get(varA.name);
+    }
+    else {
+
+        a = cmd.args[0];
+    }
+
+    if (varB.var) {
+
+        b = variables.Get(varB.name);
+    }
+    else {
+
+        b = cmd.args[2];
+    }
+  
+    output.push_back(a);
+    output.push_back(b);
+  
+    return output;
 }
 
 float Runtime::ParseNum(const Command& cmd, const std::string& input) {
@@ -45,7 +80,7 @@ std::vector<float> Runtime::ParseNums(const Command& cmd) {
 
     std::vector<float> curNums;
 
-    for (size_t i = 1; i < cmd.args.size(); i++) {
+    for (size_t i = 0; bool debug = i < cmd.args.size(); i++) {
 
         curNums.push_back(ParseNum(cmd, cmd.args[i]));
     }
@@ -76,13 +111,31 @@ void Runtime::Set(const Command& cmd) {
     variables.Set(cmd.args[0], cmd.args[1]);
 }
 
+void Runtime::Rnd(const Command& cmd) {
+  
+    float min = ParseNum(cmd, cmd.args[1]);
+    float max = ParseNum(cmd, cmd.args[2]);
+  
+    std::random_device rd;
+  
+    std::mt19937 gen(rd());
+  
+    std::uniform_int_distribution<int> distrib(std::trunc(min), std::trunc(max));
+  
+  
+  
+    variables.Set(cmd.args[0], std::to_string(distrib(gen)));
+}
+
 void Runtime::Add(const Command& cmd) {
 
     std::vector<float> nums = ParseNums(cmd);
     float addNums = 0;
-
+   
+    int debug;
+    
     for (size_t i = 0; i < nums.size(); i++) {
-
+        
         addNums = addNums + nums[i];
     }
 
@@ -93,17 +146,17 @@ void Runtime::Add(const Command& cmd) {
         RuntimeError(cmd, "First argument must be a variable.");
         return;
     }
-
-    variables.Set(cmd.args[0], FtoS(addNums + ParseNum(cmd, cmd.args[0])));
+  
+    variables.Set(var.name, FtoS(addNums));
 }
 
 void Runtime::Sub(const Command& cmd) {
 
     std::vector<float> nums = ParseNums(cmd);
-    float subNums = 0;
+    float subNums = nums[0];
 
-    for (size_t i = 0; i < nums.size(); i++) {
-
+    for (size_t i = 1; i < nums.size(); i++) {
+      
         subNums = subNums - nums[i];
     }
 
@@ -115,7 +168,7 @@ void Runtime::Sub(const Command& cmd) {
         return;
     }
 
-    variables.Set(cmd.args[0], FtoS(subNums + ParseNum(cmd, cmd.args[0])));
+    variables.Set(var.name, FtoS(subNums));
 }
 
 void Runtime::Mlt(const Command& cmd) {
@@ -136,13 +189,13 @@ void Runtime::Mlt(const Command& cmd) {
         return;
     }
 
-    variables.Set(cmd.args[0], FtoS(mltNums * ParseNum(cmd, cmd.args[0])));
+    variables.Set(var.name, FtoS(mltNums));
 }
 
 void Runtime::Div(const Command& cmd) {
 
     std::vector<float> nums = ParseNums(cmd);
-    float divNums;
+    float divNums = nums[0];
 
     VarCheck var = variables.IsVar(cmd.args[0]);
 
@@ -154,7 +207,7 @@ void Runtime::Div(const Command& cmd) {
 
     divNums = ParseNum(cmd, cmd.args[0]);
 
-    for (size_t i = 0; i < nums.size(); i++) {
+    for (size_t i = 1; i < nums.size(); i++) {
 
         if (nums[i] == 0) {
 
@@ -165,7 +218,7 @@ void Runtime::Div(const Command& cmd) {
         divNums = divNums / nums[i];
     }
 
-    variables.Set(cmd.args[0], FtoS(divNums));
+    variables.Set(var.name, FtoS(divNums));
 }
 
 void Runtime::Ask(const Command& cmd) {
@@ -190,33 +243,11 @@ void Runtime::Kll(const Command& cmd) {
 Runtime::IsIf Runtime::If(const Command& cmd, const IsIf& inIf, const size_t& commandIndex) {
 
     IsIf curIf = inIf;
+    
+    std::vector<std::string> comps = Comparitors(cmd);
 
-    VarCheck varA = variables.IsVar(cmd.args[0]);
-    VarCheck varB = variables.IsVar(cmd.args[2]);
-
-    std::string a;
-    std::string b;
-
-    if (varA.var) {
-
-        a = variables.Get(varA.name);
-    }
-    else {
-
-        a = cmd.args[0];
-    }
-
-    if (varB.var) {
-
-        b = variables.Get(varB.name);
-    }
-    else {
-
-        b = cmd.args[2];
-    }
-
-    curIf.ifBad.push_back(!Compare(a, cmd.args[1], b));
-    curIf.branchTaken.push_back(Compare(a, cmd.args[1], b));
+    curIf.ifBad.push_back(!Compare(comps[0], cmd.args[1], comps[1]));
+    curIf.branchTaken.push_back(Compare(comps[0], cmd.args[1], comps[1]));
     curIf.lineN.push_back(commandIndex);
 
     return curIf;
@@ -228,33 +259,11 @@ Runtime::IsIf Runtime::ElseIf(const Command& cmd, const IsIf& inIf) {
 
     if (curIf.ifBad.empty()) {
 
-        RuntimeError(cmd, "Unexpected else.");
+        RuntimeError(cmd, "Unexpected elseif.");
         return curIf;
     }
 
-    VarCheck varA = variables.IsVar(cmd.args[0]);
-    VarCheck varB = variables.IsVar(cmd.args[2]);
-
-    std::string a;
-    std::string b;
-
-    if (varA.var) {
-
-        a = variables.Get(varA.name);
-    }
-    else {
-
-        a = cmd.args[0];
-    }
-
-    if (varB.var) {
-
-        b = variables.Get(varB.name);
-    }
-    else {
-
-        b = cmd.args[2];
-    }
+    std::vector<std::string> comp = Comparitors(cmd);
 
     if (curIf.branchTaken.back()) {
 
@@ -262,7 +271,7 @@ Runtime::IsIf Runtime::ElseIf(const Command& cmd, const IsIf& inIf) {
     }
     else {
 
-        bool result = Compare(a, cmd.args[1], b);
+        bool result = Compare(comp[0], cmd.args[1], comp[1]);
 
         curIf.ifBad.back() = !result;
 
@@ -344,7 +353,7 @@ Runtime::IsLoop Runtime::Loop(const Command& cmd, const IsLoop& isLoop,  const s
     return curLoop;
 }
 
-Runtime::IsLoop Runtime::EndLoop(const Command& cmd, const IsLoop& isLoop) {
+Runtime::IsLoop Runtime::EndLoop(const Command& cmd, const IsLoop&  isLoop) {
 
     IsLoop curLoop = isLoop;
 
@@ -363,4 +372,19 @@ Runtime::IsLoop Runtime::EndLoop(const Command& cmd, const IsLoop& isLoop) {
     }
 
     return curLoop;
+}
+
+Runtime::IsFor Runtime::For(const Command& cmd, const IsFor& isFor,   const size_t& commandIndex) {
+    
+    IsFor curFor = isFor;
+    
+    std::vector<std::string> comps = Comparitors(cmd);
+    
+    
+    
+    if (curFor.lineN != commandIndex) {
+        curFor.lineN.push_back(commandIndex);
+        curFor.iterations.push_back(0);
+        curFor.cmd.push_back(cmd);
+    }
 }
