@@ -380,11 +380,34 @@ Runtime::IsFor Runtime::For(const Command& cmd, const IsFor& isFor,   const size
     
     std::vector<std::string> comps = Comparitors(cmd);
     
-    
-    
     if (curFor.lineN != commandIndex) {
+        
         curFor.lineN.push_back(commandIndex);
-        curFor.iterations.push_back(0);
+        curFor.iterations.push_back(std::stoi(comps[0]));
         curFor.cmd.push_back(cmd);
+        curFor.forBad.push_back(compare(curIf.iterations.back(), cmd.args[1], comps[1]););
+    }
+    else {
+        
+        curFor.iterations.append(curFor.iterations + 1);
+        curFor.forBad.pop_back();
+        curFor.forBad.push_backcompare(curIf.iterations.back(), cmd.args[1], comps[1]););
+    }
+}
+
+Runtime::IsFor Runtime::EndFor(const Command& cmd, const IsFor& isFor) {
+    
+    IsFor curFor = isFor;
+    
+    if (curFor.iterations.empty()) {
+        
+        RuntimeError(cmd, "Unexpected endfor.");
+        return curFor;
+    }
+    
+    if (curFor.forBad.back()) {
+        
+        curFor.iterations.pop_back();
+        curFor.
     }
 }

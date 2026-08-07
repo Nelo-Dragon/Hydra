@@ -52,6 +52,7 @@ private:
     IsLoop Loop(const Command& cmd, const IsLoop& isLoop, const size_t& commandIndex);
     IsLoop EndLoop(const Command& cmd, const IsLoop& isLoop);
     IsFor For(const Command& cmd, const IsFor& isFor, const size_t& commandIndex);
+    IsFor EndFor(const Command& cmd, const IsFor& IsFor);
     
 
     IsIf If(const Command& cmd, const IsIf& inIf, const size_t& commandIndex);
