@@ -35,7 +35,7 @@ private:
         std::vector<int> iteration;
         std::vector<const Command> cmd;
         std::vector<bool> forBad;
-    }
+    };
 
     void RuntimeError(const Command& cmd, const std::string& message);
 

@@ -187,7 +187,7 @@ void Runtime::Mlt(const Command& cmd) {
 
         RuntimeError(cmd, "First argument must be a variable.");
         return;
-    }
+}
 
     variables.Set(var.name, FtoS(mltNums));
 }
@@ -380,18 +380,18 @@ Runtime::IsFor Runtime::For(const Command& cmd, const IsFor& isFor,   const size
     
     std::vector<std::string> comps = Comparitors(cmd);
     
-    if (curFor.lineN != commandIndex) {
-        
+    if (curFor.lineN.back() != commandIndex) {
+
         curFor.lineN.push_back(commandIndex);
-        curFor.iterations.push_back(std::stoi(comps[0]));
+        curFor.iteration.push_back(std::stoi(comps[0]));
         curFor.cmd.push_back(cmd);
-        curFor.forBad.push_back(compare(curIf.iterations.back(), cmd.args[1], comps[1]););
+        curFor.forBad.push_back(Compare(comps[0], cmd.args[1], comps[1]));
     }
     else {
-        
-        curFor.iterations.append(curFor.iterations + 1);
+        curFor.iteration.pop_back();
+        curFor.iteration.push_back(curFor.iteration.back() + 1);
         curFor.forBad.pop_back();
-        curFor.forBad.push_backcompare(curIf.iterations.back(), cmd.args[1], comps[1]););
+        curFor.forBad.push_back(Compare(comps[0], cmd.args[1], comps[1]));
     }
 }
 
@@ -399,7 +399,7 @@ Runtime::IsFor Runtime::EndFor(const Command& cmd, const IsFor& isFor) {
     
     IsFor curFor = isFor;
     
-    if (curFor.iterations.empty()) {
+    if (curFor.iteration.empty()) {
         
         RuntimeError(cmd, "Unexpected endfor.");
         return curFor;
@@ -407,7 +407,9 @@ Runtime::IsFor Runtime::EndFor(const Command& cmd, const IsFor& isFor) {
     
     if (curFor.forBad.back()) {
         
-        curFor.iterations.pop_back();
-        curFor.
+        curFor.iteration.pop_back();
+        curFor.cmd.pop_back();
+        curFor.forBad.pop_back();
+        curFor.lineN.pop_back();
     }
 }
