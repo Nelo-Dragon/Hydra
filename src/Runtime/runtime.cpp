@@ -68,6 +68,7 @@ void Runtime::Run(const std::vector<Command>& commands)
 
     IsIf isIf;
     IsLoop isLoop;
+    IsFor isFor;
 
     for (size_t i = 0; i < commands.size(); i++) {
 
@@ -111,6 +112,22 @@ void Runtime::Run(const std::vector<Command>& commands)
             continue;
         }
 
+        if (cmd.name == "for") {
+
+            if (argA != 3) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            if (isFor.lineN.empty() || isFor.lineN.back() != i) {
+
+                isFor = For(cmd, isFor, i);
+            }
+
+            continue;
+        }
+
         if (cmd.name == "loop") {
 
             if (argA != 1) {
@@ -136,6 +153,25 @@ void Runtime::Run(const std::vector<Command>& commands)
             }
 
             isIf = EndIf(cmd, isIf);
+            continue;
+        }
+
+        if (cmd.name == "endfor") {
+
+            if (argA != 0) {
+
+                RuntimeError(cmd, argErr);
+                continue;
+            }
+
+            size_t stackSizeBefore = isFor.lineN.size();
+            isFor = EndFor(cmd, isFor);
+
+            if (isFor.lineN.size() == stackSizeBefore) {
+
+                i = isFor.lineN.back();
+            }
+            
             continue;
         }
 

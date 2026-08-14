@@ -33,7 +33,7 @@ private:
         
         std::vector<int> lineN;
         std::vector<int> iteration;
-        std::vector<const Command> cmd;
+        std::vector<Command> cpute;
         std::vector<bool> forBad;
     };
 
