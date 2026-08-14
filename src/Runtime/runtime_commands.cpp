@@ -380,7 +380,7 @@ Runtime::IsFor Runtime::For(const Command& cmd, const IsFor& isFor,   const size
     
     std::vector<std::string> comps = Comparitors(cmd);
     
-    if (curFor.lineN.back() != commandIndex) {
+    if (curFor.lineN.empty() || curFor.lineN.back() != commandIndex) {
 
         curFor.lineN.push_back(commandIndex);
         curFor.iteration.push_back(std::stoi(comps[0]));
@@ -394,7 +394,7 @@ Runtime::IsFor Runtime::For(const Command& cmd, const IsFor& isFor,   const size
         curFor.forBad.push_back(Compare(comps[0], cmd.args[1], comps[1]));
     }
 
-    return isFor;
+    return curFor;
 }
 
 Runtime::IsFor Runtime::EndFor(const Command& cmd, const IsFor& isFor) {
@@ -415,5 +415,5 @@ Runtime::IsFor Runtime::EndFor(const Command& cmd, const IsFor& isFor) {
         curFor.lineN.pop_back();
     }
 
-    return isFor;
+    return curFor;
 }
