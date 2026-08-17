@@ -1,0 +1,28 @@
+
+
+set money, 100
+set dead, 0
+
+loop 100
+
+    if $money > 1
+
+        ask input, "0 or 1: "
+        rand flip, 0, 1
+
+        if $input = $flip
+
+            add $money, 10
+            say "You guessed right! Money: ", $money
+        else
+
+            sub $money, 10
+            say "You guessed wrong! Money: ", $money
+        endif
+
+    elseif $dead = 0
+
+        set dead, 1
+        say "You lost :("
+    endif
+endloop
