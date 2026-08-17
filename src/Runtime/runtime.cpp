@@ -1,5 +1,5 @@
-#include "HydraCodesrc/Runtime/runtime.h"
-#include "HydraCodesrc/Variables/variables.h"
+#include "src/Runtime/runtime.h"
+#include "src/Variables/variables.h"
 
 #include <iostream>
 #include <string>
